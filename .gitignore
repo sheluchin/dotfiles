@@ -3,3 +3,5 @@
 
 *.swp
 .netrwhist
+pubring.gpg~
+secring.gpg
