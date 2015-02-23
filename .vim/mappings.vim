@@ -114,5 +114,9 @@ nmap jl :<C-u>echo 'Use /'<CR>
 nmap kl :<C-u>echo 'Use /'<CR>
 nmap jh :<C-u>echo 'Use /'<CR>
 nmap kh :<C-u>echo 'Use /'<CR>
-nmap <Down> :<C-u>echo 'Use nj!'<CR>
-nmap <Up> :<C-u>echo 'Use nk!'<CR>
+
+" Use arrow keys to resize windows
+noremap <up> <C-W>+
+noremap <down> <C-W>-
+noremap <left> 3<C-W><
+noremap <right> 3<C-W>>
