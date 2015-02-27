@@ -5,3 +5,4 @@
 .netrwhist
 pubring.gpg~
 secring.gpg
+.secrets
