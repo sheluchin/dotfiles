@@ -1,0 +1,15 @@
+#! /bin/sh
+
+# Git
+alias gcd='git checkout develop'
+alias gpod='git pull origin develop'
+alias gs='git status --short'
+
+# Displays your current directory how it ought to be shown:
+# -A : print all files except ./ and ../
+# -l : show detailed file information
+# -t : sort by time-last-modified
+# -r : reverse the sort, to show most recent on bottom
+# -h : show file sizes in human-readable format
+# -G : colorize the output
+alias ll='ls -AltrhG'
