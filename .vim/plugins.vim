@@ -25,6 +25,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'altercation/vim-colors-solarized'
     Plug 'majutsushi/tagbar'
     Plug 'scrooloose/nerdtree'
+    Plug 'mtth/scratch.vim'
+    Plug 'vim-scripts/AutoComplPop'
 call plug#end()
 
 let g:indentLine_color_term = 0
