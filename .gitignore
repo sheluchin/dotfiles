@@ -6,3 +6,4 @@
 pubring.gpg~
 secring.gpg
 .secrets
+.ssh/id_rsa
