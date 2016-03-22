@@ -1,15 +1,15 @@
 " ==========================================================
 " Basic Settings
 " ==========================================================
-colorscheme solarized
+colorscheme PaperColor
 syntax on                     " syntax highlighing
 filetype on                   " try to detect filetypes
 filetype plugin indent on     " enable loading indent file for filetype
-set shell=bash
+set shell=$SHELL
 set relativenumber            " Use relative line numbers
 set number                    " Display line numbers
 set numberwidth=1             " using only 1 column (and 1 space) while possible
-set background=dark           " We are using dark background in vim
+set background=light          " We are using dark background in vim
 set title                     " show title in console title bar
 set wildmenu                  " Menu completion in command mode on <Tab>
 set wildmode=full             " <Tab> cycles between all matching choices.
@@ -91,3 +91,9 @@ set smarttab                " Handle tabs more intelligently
 set hlsearch                " Highlight searches by default.
 set incsearch               " Incrementally search while typing a /regex
 
+""" Neovim's Terminal
+highlight TermCursor ctermfg=green guifg=green
+autocmd BufEnter term://* startinsert
+
+""" Neovim Python 3 support
+let g:python3_host_prog = '/Users/alex/.pyenv/versions/3.4.3/bin/python3'

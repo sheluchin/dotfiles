@@ -18,6 +18,12 @@ function! DiffToggle()
     endif
 :endfunction
 
+" Appends the highlighted text to a new line in "a.
+function! AppendToNewLine()
+    let @a = @a . "\r"
+    norm "Aygn
+endfunction
+
 " ==========================================================
 " Testing functions
 " ==========================================================
@@ -27,11 +33,12 @@ fu! OpenCoverage()
 endfu
 
 fu! OpenFileCoverage()
-    let covdir = $VIRTUAL_ENV . '/../aim/htmlcov/'
+    let covdir = $VIRTUAL_ENV . '/../src/htmlcov/'
     let fname = @%
     let fname = substitute(fname, '.py', '.html', '')
     let fname = substitute(fname, '/', '_', '')
-    let covfile = covdir . fname . '\#n' . line(".")
+    let covfile = covdir . fname
+    " let covfile = covdir . fname . '\#n' . line(".")
     :exe '!open ' . covfile
 endfu
 
@@ -52,9 +59,25 @@ function! RunCurrentTest()
     " :exe 'Dispatch ./manage.py test_coverage ' . fname
 endfunction
 
+function! RunAssistiaTest()
+    " Save spot in file
+    normal mx
+    " Get the method name to @a
+    normal [m0ww"ayw
+    " Get the class name @b
+    norm [[0w"byw
+
+    " Return to place in file
+    norm `x
+    let fname = expand('%')
+    let test_path = substitute(matchstr(fname, '.\{-}\.'), '/', '.', 'g')
+    :exe 'Dispatch ./manage.py test ' . test_path . @b . '.' . @a
+    " :exe 'Dispatch ./manage.py test_coverage ' . fname
+endfunction
+
 function! InsertBreakPoint()
     " Inserts an ipdb breakpoint on the line below the cursor.
-    normal oimport pudb; pu.db
+    normal oimport ipdb; ipdb.set_trace()
     :w
 endfunction
 
@@ -67,3 +90,39 @@ function! PushCurrentBranch()
     let @b = 'Git push origin ' . fugitive#head()
     exe @b
 endfunction
+
+" http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
+" vp doesn't replace paste buffer
+function! RestoreRegister()
+  let @" = s:restore_reg
+  return ''
+endfunction
+function! s:Repl()
+  let s:restore_reg = @"
+  return "p@=RestoreRegister()\<cr>"
+endfunction
+vmap <silent> <expr> p <sid>Repl()
+
+" https://medium.com/@garoth/neovim-terminal-usecases-tricks-8961e5ac19b9
+" Terminal settings
+tnoremap <Leader><ESC> <C-\><C-n>
+
+" Window navigation function
+" Make ctrl-h/j/k/l move between windows and auto-insert in terminals
+func! s:mapMoveToWindowInDirection(direction)
+    func! s:maybeInsertMode(direction)
+        stopinsert
+        execute "wincmd" a:direction
+
+        :au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+    endfunc
+
+    execute "tnoremap" "<silent>" "<C-" . a:direction . ">"
+                \ "<C-\\><C-n>"
+                \ ":call <SID>maybeInsertMode(\"" . a:direction . "\")<CR>"
+    execute "nnoremap" "<silent>" "<C-" . a:direction . ">"
+                \ ":call <SID>maybeInsertMode(\"" . a:direction . "\")<CR>"
+endfunc
+for dir in ["h", "j", "l", "k"]
+    call s:mapMoveToWindowInDirection(dir)
+endfor
