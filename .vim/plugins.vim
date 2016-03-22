@@ -19,14 +19,28 @@ call plug#begin('~/.vim/plugged')
     Plug 'airblade/vim-gitgutter'
     Plug 'sjl/gundo.vim'
     Plug 'Yggdroot/indentLine'
-    Plug 'Yggdroot/indentLine'
     Plug 'janko-m/vim-test'
     Plug 'dahu/vim-fanfingtastic'
     Plug 'altercation/vim-colors-solarized'
     Plug 'majutsushi/tagbar'
     Plug 'scrooloose/nerdtree'
     Plug 'mtth/scratch.vim'
-    Plug 'vim-scripts/AutoComplPop'
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'eparreno/vim-l9'
+    Plug 'shime/vim-livedown'
+    Plug 'NLKNguyen/papercolor-theme'
+    Plug 'arecarn/fold-cycle.vim'
+    Plug 'tpope/vim-eunuch'
+    Plug 'kassio/neoterm'
+    Plug 'fishbullet/vim-pastery'
+    Plug 'mattn/webapi-vim'
+    Plug 'nvie/vim-flake8'
+    Plug 'ludovicchabant/vim-gutentags'
+    Plug 'IN3D/vim-raml'
+    Plug 'gabesoft/vim-ags'
+    Plug 'mfukar/robotframework-vim'
+    Plug 'nhooyr/neoman.vim'
+    Plug 'zenbro/mirror.vim'
 call plug#end()
 
 let g:indentLine_color_term = 0
@@ -34,9 +48,16 @@ let g:tagbar_foldlevel=0
 let g:ackprg='ag'
 
 " vim-test
-let g:test#strategy = 'dispatch'
+let g:test#strategy = 'neoterm'
 let g:test#python#runner = 'pytest'
+let test#python#pytest#options = '-sv --cov-report=html --cov summary'
 
+" neoterm
+nmap <Leader>r TREPLSend
+vmap <Leader>r '<,'>TREPLSend
+nmap <Leader>1 :T1 
+nmap <F2> :call neoterm#toggle()<CR>
+ 
 " Gundo
 let g:gundo_preview_bottom = 1
 
@@ -48,3 +69,6 @@ let g:UltiSnipsEditSplit="vertical"
 
 " Automatically open pop-up window for completions.
 let g:acp_completeoptPreview=1
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1

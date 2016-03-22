@@ -29,8 +29,12 @@ nmap <F12> :Gstatus<CR>
 nmap <F8> :TagbarToggle<CR>
 
 " vim-test
-map <Leader>tn :TestNearest --reuse-db -s --cov-report=html --cov=.<CR>
+map <Leader>tn :TestNearest --reuse-db<CR>
 map <Leader>tl :TestLast<CR>
+
+" neoterm
+nnoremap <leader>tq :call neoterm#close_all()<cr>
+nnoremap <leader>tc :call neoterm#clear()<cr>
 
 " Ack searching
 nmap <leader>a <Esc>:Ack!
