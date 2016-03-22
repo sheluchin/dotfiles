@@ -38,3 +38,12 @@ fabsync () {
     curl -X DELETE "${FIREBASE_URL_ALEX}.json";
     curl -X PUT -d "@firebase_deimos.json" "${FIREBASE_URL_ALEX}airports.json";
 }
+
+# Get the database from the assistia server.
+getdb () {
+    rsync -vP -e "ssh -l postgres" ubuntu@${ASSISTIA_IP}:/tmp/assistia_rds.sql .
+}
+
+pf () {
+    pip freeze | grep "$1"
+}
