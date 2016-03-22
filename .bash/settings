@@ -21,9 +21,9 @@ export EDITOR=vim
 
 shopt -s globstar
 
-# GREEN="\[\033[0;32m\]""]"
-#   PS1="\[\e[0;34m\]\h \[\033[1;36m\]\t\[\033[m\] \[\033[33;1m\]\w\[\033[0;32m\] \$(git branch 2>/dev/null | grep -e '\* ' | sed 's/^..\(.*\)/(\1)/')\$ \[\033[m\] "
-
 # Virtualenvwrapper
 export WORKON_HOME="~/.virtualenvs"
 source /usr/local/bin/virtualenvwrapper.sh
+
+# GREEN="\[\033[0;32m\]""]"
+#   PS1="\[\e[0;34m\]\h \[\033[1;36m\]\t\[\033[m\] \[\033[33;1m\]\w\[\033[0;32m\] \$(git branch 2>/dev/null | grep -e '\* ' | sed 's/^..\(.*\)/(\1)/')\$ \[\033[m\] "
