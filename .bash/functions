@@ -38,3 +38,7 @@ fabsync () {
     curl -X DELETE "${FIREBASE_URL_ALEX}.json";
     curl -X PUT -d "@firebase_deimos.json" "${FIREBASE_URL_ALEX}airports.json";
 }
+
+pf () {
+    pip freeze | grep -i "$1"
+}
