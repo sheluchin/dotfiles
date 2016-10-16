@@ -27,11 +27,12 @@ fu! OpenCoverage()
 endfu
 
 fu! OpenFileCoverage()
-    let covdir = $VIRTUAL_ENV . '/../aim/htmlcov/'
+    let covdir = $VIRTUAL_ENV . '/../src/htmlcov/'
     let fname = @%
     let fname = substitute(fname, '.py', '.html', '')
     let fname = substitute(fname, '/', '_', '')
-    let covfile = covdir . fname . '\#n' . line(".")
+    let covfile = covdir . fname
+    " let covfile = covdir . fname . '\#n' . line(".")
     :exe '!open ' . covfile
 endfu
 
@@ -54,7 +55,7 @@ endfunction
 
 function! InsertBreakPoint()
     " Inserts an ipdb breakpoint on the line below the cursor.
-    normal oimport pudb; pu.db
+    normal oimport ipdb; ipdb.set_trace()
     :w
 endfunction
 

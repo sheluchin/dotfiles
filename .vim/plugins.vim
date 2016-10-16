@@ -34,8 +34,10 @@ let g:tagbar_foldlevel=0
 let g:ackprg='ag'
 
 " vim-test
-let g:test#strategy = 'dispatch'
+let g:test#strategy = 'neoterm'
 let g:test#python#runner = 'pytest'
+let test#python#pytest#options = '-sv --cov-report=html --cov summary'
+let test#filename_modifier = ':p'  " Use absolute paths
 
 " Gundo
 let g:gundo_preview_bottom = 1
