@@ -18,6 +18,12 @@ function! DiffToggle()
     endif
 :endfunction
 
+" Appends the highlighted text to a new line in "a.
+function! AppendToNewLine()
+    let @a = @a . "\r"
+    norm "Aygn
+endfunction
+
 " ==========================================================
 " Testing functions
 " ==========================================================

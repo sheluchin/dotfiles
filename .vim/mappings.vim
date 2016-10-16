@@ -107,13 +107,8 @@ map <Leader>ef :call InsertBreakPoint()<cr>
 " Push the current branch (uses Fugitive)
 map <Leader>gp :call PushCurrentBranch()
 
-" Prevent me from doing inefficient stuff
-nmap jj :<C-u>echo 'Use nj!'<CR>
-nmap kk :<C-u>echo 'Use nk!'<CR>
-nmap jl :<C-u>echo 'Use /'<CR>
-nmap kl :<C-u>echo 'Use /'<CR>
-nmap jh :<C-u>echo 'Use /'<CR>
-nmap kh :<C-u>echo 'Use /'<CR>
+" Append highlighted text to a new line in "a.
+map <Leader>yy :call AppendToNewLine()<cr>
 
 " Use arrow keys to resize windows
 noremap <up> <C-W>+
