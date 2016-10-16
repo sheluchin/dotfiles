@@ -91,3 +91,6 @@ set smarttab                " Handle tabs more intelligently
 set hlsearch                " Highlight searches by default.
 set incsearch               " Incrementally search while typing a /regex
 
+""" Neovim Python 3 support
+let g:python_host_prog = '/Users/alex/.pyenv/versions/neovim2.7.12/bin/python2.7'
+let g:python3_host_prog = '/Users/alex/.pyenv/versions/neovim/bin/python3.5'
