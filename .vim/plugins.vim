@@ -19,6 +19,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'airblade/vim-gitgutter'
     Plug 'sjl/gundo.vim'
     Plug 'Yggdroot/indentLine'
+    Plug 'Shougo/deoplete.nvim'
     Plug 'Yggdroot/indentLine'
     Plug 'janko-m/vim-test'
     Plug 'dahu/vim-fanfingtastic'
@@ -50,3 +51,11 @@ let g:UltiSnipsEditSplit="vertical"
 
 " Automatically open pop-up window for completions.
 let g:acp_completeoptPreview=1
+
+" Deoplete
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+
+let g:deoplete#enable_at_startup = 1
