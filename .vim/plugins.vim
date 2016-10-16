@@ -38,7 +38,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'machakann/vim-highlightedyank'
 call plug#end()
 
-let g:indentLine_color_term = 0
+let g:indentLine_color_term = 153
 let g:tagbar_foldlevel=0
 let g:ackprg='ag'
 
