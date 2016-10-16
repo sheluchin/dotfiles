@@ -59,6 +59,22 @@ function! RunCurrentTest()
     " :exe 'Dispatch ./manage.py test_coverage ' . fname
 endfunction
 
+function! RunAssistiaTest()
+    " Save spot in file
+    normal mx
+    " Get the method name to @a
+    normal [m0ww"ayw
+    " Get the class name @b
+    norm [[0w"byw
+
+    " Return to place in file
+    norm `x
+    let fname = expand('%')
+    let test_path = substitute(matchstr(fname, '.\{-}\.'), '/', '.', 'g')
+    :exe 'Dispatch ./manage.py test ' . test_path . @b . '.' . @a
+    " :exe 'Dispatch ./manage.py test_coverage ' . fname
+endfunction
+
 function! InsertBreakPoint()
     " Inserts an ipdb breakpoint on the line below the cursor.
     normal oimport ipdb; ipdb.set_trace()

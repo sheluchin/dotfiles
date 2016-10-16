@@ -53,7 +53,7 @@ nnoremap <Leader>r TREPLSend
 vnoremap <Leader>r '<,'>TREPLSend
 nnoremap <Leader>1 :T1 
 nnoremap <F2> :call neoterm#toggle()<CR>
- 
+
 " Gundo
 let g:gundo_preview_bottom = 1
 
@@ -71,5 +71,4 @@ function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-
 let g:deoplete#enable_at_startup = 1

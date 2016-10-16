@@ -11,3 +11,4 @@ if [[ -d "$HOME/.bash/" ]]; then
     done
 
 fi
+eval "$(pyenv virtualenv-init -)"

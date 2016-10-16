@@ -106,6 +106,7 @@ map <Leader>oc :call OpenFileCoverage()<CR>
 
 " Execute the test above cursor using Django test runner
 map <Leader>tt :call RunCurrentTest()<cr>
+" map <Leader>tt :call RunAssistiaTest()<cr>
 
 " Insert a breakpoint on line below cursor
 map <Leader>ef :call InsertBreakPoint()<cr>
