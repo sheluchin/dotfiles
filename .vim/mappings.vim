@@ -116,6 +116,23 @@ noremap <down> <C-W>-
 noremap <left> 3<C-W><
 noremap <right> 3<C-W>>
 
+" Abbrevs
+inoremap fs flightstrip
+inoremap FS FlightStrip
+inoremap .ob .objects.
+inoremap lbl Event.LABEL_
+
+" HighlightModelFields
+nnoremap <silent> ]h /^\s\{4}\zs[a-z_]*\ze = models<CR>
+
 " Exit terminal emulator back to normal mode
 tnoremap jk <C-\><C-n>
 
+" Go to start and end of line in cmd/search mode
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
+
+" Search for the last used terminal command
+" TODO: fix conflict with GitGutter mappings
+nnoremap <silent> ]c /\v^\d{2}\:\d{2}\s\$\s\zs.*\ze<CR>
+nnoremap <sient> [c ?\v^\d{2}\:\d{2}\s\$\s\zs.*\ze<CR>
