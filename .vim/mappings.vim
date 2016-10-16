@@ -32,6 +32,12 @@ nmap <F8> :TagbarToggle<CR>
 map <Leader>tn :TestNearest --reuse-db<CR>
 map <Leader>tl :TestLast<CR>
 
+" neoterm
+nnoremap <leader>tq :call neoterm#close_all()<cr>
+nnoremap <leader>tc :call neoterm#clear()cr>
+" Repeat last command
+nnoremap <leader>tr :call neoterm#do('!!')<cr>
+
 " Ack searching
 nmap <leader>a <Esc>:Ack!
 

@@ -40,6 +40,12 @@ let g:test#python#runner = 'pytest'
 let test#python#pytest#options = '-sv --cov-report=html --cov summary'
 let test#filename_modifier = ':p'  " Use absolute paths
 
+" neoterm
+nnoremap <Leader>r TREPLSend
+vnoremap <Leader>r '<,'>TREPLSend
+nnoremap <Leader>1 :T1 
+nnoremap <F2> :call neoterm#toggle()<CR>
+ 
 " Gundo
 let g:gundo_preview_bottom = 1
 
