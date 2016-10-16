@@ -29,7 +29,7 @@ nmap <F12> :Gstatus<CR>
 nmap <F8> :TagbarToggle<CR>
 
 " vim-test
-map <Leader>tn :TestNearest --reuse-db -s --cov-report=html --cov=.<CR>
+map <Leader>tn :TestNearest --reuse-db<CR>
 map <Leader>tl :TestLast<CR>
 
 " Ack searching
