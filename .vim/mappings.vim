@@ -115,3 +115,7 @@ noremap <up> <C-W>+
 noremap <down> <C-W>-
 noremap <left> 3<C-W><
 noremap <right> 3<C-W>>
+
+" Exit terminal emulator back to normal mode
+tnoremap jk <C-\><C-n>
+
