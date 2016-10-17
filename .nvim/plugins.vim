@@ -36,6 +36,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-unimpaired'
     Plug 'arecarn/fold-cycle.vim'
     Plug 'machakann/vim-highlightedyank'
+    Plug 'neomake/neomake'
 call plug#end()
 
 let g:indentLine_color_term = 153
@@ -72,3 +73,8 @@ function! DoRemote(arg)
 endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 let g:deoplete#enable_at_startup = 1
+
+" Neomake
+autocmd! BufWritePost * Neomake
+nnoremap <leader>j :lopen<CR>
+nnoremap <leader>k :lclose<CR>
