@@ -17,7 +17,11 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 export PATH=/usr/local/bin/myfunctions:/usr/local/bin/blackbox:/usr/local/bin:$PATH
-export EDITOR=nvim
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+export GIT_EDITOR="$EDITOR"
 
 # Recursive globs with **
 shopt -s globstar
+
+alias vim='nvim'

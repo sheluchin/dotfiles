@@ -1,6 +1,6 @@
 set nocompatible              " Don't be compatible with vi
-source ~/.vim/plugins.vim
-source ~/.vim/functions.vim
-source ~/.vim/mappings.vim
-source ~/.vim/settings.vim
-source ~/.vim/lanuages.vim
+source ~/.nvim/plugins.vim
+source ~/.nvim/functions.vim
+source ~/.nvim/mappings.vim
+source ~/.nvim/settings.vim
+source ~/.nvim/lanuages.vim

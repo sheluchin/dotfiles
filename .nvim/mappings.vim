@@ -6,7 +6,7 @@ let mapleader="\<Space>"      " change the leader to be the Spacebar
 nnoremap <Leader>w :w<CR>
 
 " Reload Vimrc
-map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+map <silent> <leader>V :source ~/.nvimrc<CR>:filetype detect<CR>:exe ":echo 'nvimrc reloaded'"<CR>
 
 " open/close the quickfix window
 nmap <leader>c :copen<CR>
@@ -74,7 +74,7 @@ nnoremap <silent> [v ?\v^(\<\|\=\|\>){7}([^=].+)\?$<CR>
 nnoremap gb :ls<CR>:b<space>
 
 " Load my alex_vimrc
-noremap <leader>ev :tabe ~/.vimrc<CR>
+noremap <leader>ev :tabe ~/.nvimrc<CR>
 
 " Edit on a specific line
 noremap <leader>e :e+
