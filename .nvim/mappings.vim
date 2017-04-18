@@ -139,7 +139,20 @@ tnoremap jk <C-\><C-n>
 cnoremap <c-a> <home>
 cnoremap <c-e> <end>
 
+" In the quickfix window, <CR> is used to jump to the error under the cursor, so undefine the mapping there.
+autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+autocmd BufReadPost location-list nnoremap <buffer> <CR> <CR>
+
 " Search for the last used terminal command
-" TODO: fix conflict with GitGutter mappings
-nnoremap <silent> ]c /\v^\d{2}\:\d{2}\s\$\s\zs.*\ze<CR>
-nnoremap <sient> [c ?\v^\d{2}\:\d{2}\s\$\s\zs.*\ze<CR>
+" TODO: make these only apply in a terminal and change to ]c (lowercase)
+" nnoremap <silent> ]C /\v^\d{2}\:\d{2}\s\$\s\zs.*\ze<CR>
+" nnoremap <sient> [C ?\v^\d{2}\:\d{2}\s\$\s\zs.*\ze<CR>
+
+" Linters
+nnoremap <leader>j :lopen<CR>
+nnoremap <leader>k :lclose<CR>
+
+" Generate tags for your current virtualenv
+map <S-F11> :!ctags -R -f $VIRTUAL_ENV/tags $VIRTUAL_ENV/lib/python2.7/site-packages<CT>
+" ctags -aR $VIRTUAL_ENV/lib/python2.7/site-packages/ -o ./tags
+" set tags=$VIRTUAL_ENV/tags
