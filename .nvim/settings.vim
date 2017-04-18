@@ -15,8 +15,6 @@ set wildmenu                  " Menu completion in command mode on <Tab>
 set wildmode=full             " <Tab> cycles between all matching choices.
 set colorcolumn=120           " Display a line at 120 columns
 set clipboard=unnamed         " Use system clipboard
-hi ColorColumn ctermbg=0
-hi SignColumn ctermbg=8
 
 " Ignore these files when completing
 set wildignore+=*.o,*.obj,.git,*.pyc
@@ -53,6 +51,7 @@ set shiftround              " rounds indent to a multiple of shiftwidth
 set matchpairs+=<:>         " show matching <> (html mainly) as well
 set foldmethod=indent       " allow us to fold on indents
 set foldlevel=99            " don't fold by default
+hi Folded ctermbg=white     " give folds a white background
 set cindent                 " Indent according to c rules
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
@@ -91,6 +90,10 @@ set smarttab                " Handle tabs more intelligently
 set hlsearch                " Highlight searches by default.
 set incsearch               " Incrementally search while typing a /regex
 
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
 """ Neovim's Terminal
 highlight TermCursor ctermfg=green guifg=green
 autocmd BufEnter term://* startinsert
@@ -98,3 +101,8 @@ autocmd BufEnter term://* startinsert
 """ Neovim Python 3 support
 let g:python_host_prog = '/Users/alex/.pyenv/versions/neovim2.7.12/bin/python2.7'
 let g:python3_host_prog = '/Users/alex/.pyenv/versions/neovim/bin/python3.5'
+
+" Replace text in place if using neovim
+if exists('&inccommand')
+  set inccommand=split
+endif
