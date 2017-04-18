@@ -31,12 +31,15 @@ call plug#begin('~/.nvim/plugged')
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-eunuch'
     Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-rhubarb'
     Plug 'tpope/vim-speeddating'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-unimpaired'
     Plug 'arecarn/fold-cycle.vim'
     Plug 'machakann/vim-highlightedyank'
     Plug 'neomake/neomake'
+    Plug 'vimwiki/vimwiki'
+    " Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 let g:indentLine_color_term = 153
@@ -54,6 +57,9 @@ nnoremap <Leader>r TREPLSend
 vnoremap <Leader>r '<,'>TREPLSend
 nnoremap <Leader>1 :T1 
 nnoremap <F2> :call neoterm#toggle()<CR>
+
+" nerdtree
+let NERDTreeIgnore = ['\.pyc$']
 
 " Gundo
 let g:gundo_preview_bottom = 1
@@ -78,3 +84,14 @@ let g:deoplete#enable_at_startup = 1
 autocmd! BufWritePost * Neomake
 nnoremap <leader>j :lopen<CR>
 nnoremap <leader>k :lclose<CR>
+
+" VimWiki
+let g:tagbar_type_vimwiki = {
+          \   'ctagstype':'vimwiki'
+          \ , 'kinds':['h:header']
+          \ , 'sro':'&&&'
+          \ , 'kind2scope':{'h':'header'}
+          \ , 'sort':0
+          \ , 'ctagsbin':'~/dotfiles/.nvim/scripts/vwtags.py'
+          \ , 'ctagsargs': 'default'
+          \ }
