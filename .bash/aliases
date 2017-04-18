@@ -13,3 +13,5 @@ alias gs='git status --short'
 # -h : show file sizes in human-readable format
 # -G : colorize the output
 alias ll='ls -AltrhG'
+
+alias vim='nvim'

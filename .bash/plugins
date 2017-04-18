@@ -29,5 +29,5 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-eval $(gpg-agent --homedir /Users/alex/.gnupg --use-standard-socket --daemon)
-export GPG_TTY=$(tty)
+# gpg-agent
+eval $(gpg-agent --daemon --allow-preset-passphrase)
