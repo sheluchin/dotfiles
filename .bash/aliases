@@ -1,9 +1,15 @@
 #! /bin/sh
 
+# Restart shell
+alias exs="exec $SHELL"
+
 # Git
 alias gcd='git checkout develop'
 alias gpod='git pull origin develop'
 alias gs='git status --short'
+alias gsl='git status'
+alias gd='git diff'
+alias gdc='git diff --cached'
 
 # Displays your current directory how it ought to be shown:
 # -A : print all files except ./ and ../
