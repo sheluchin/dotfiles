@@ -7,6 +7,11 @@ bind "set show-all-if-unmodified on"
 bind "set completion-map-case on"
 bind Space:magic-space # pressing space after a history command like !! will expand the command
 
+# vi-mode
+set -o vi
+bind -m vi-insert '"jj": vi-movement-mode'
+bind -m vi-insert '"\C-l": clear-screen'
+
 # Show vi-mode
 bind 'set show-mode-in-prompt on'
 bind 'set vi-ins-mode-string \1\e[34;1m\2+\1\e[0m\2'
