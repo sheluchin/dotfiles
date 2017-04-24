@@ -14,7 +14,7 @@ set title                     " show title in console title bar
 set wildmenu                  " Menu completion in command mode on <Tab>
 set wildmode=full             " <Tab> cycles between all matching choices.
 set colorcolumn=120           " Display a line at 120 columns
-set clipboard=unnamed         " Use system clipboard
+set clipboard=unnamedplus     " Use system clipboard
 
 " Ignore these files when completing
 set wildignore+=*.o,*.obj,.git,*.pyc
@@ -99,8 +99,8 @@ highlight TermCursor ctermfg=green guifg=green
 autocmd BufEnter term://* startinsert
 
 """ Neovim Python 3 support
-let g:python_host_prog = '/Users/alex/.pyenv/versions/neovim2.7.12/bin/python2.7'
-let g:python3_host_prog = '/Users/alex/.pyenv/versions/neovim/bin/python3.5'
+let g:python_host_prog = '/home/alex/.pyenv/versions/2.7.12/bin/python2.7'
+let g:python3_host_prog = '/home/alex/.pyenv/versions/3.5.3/bin/python3.5'
 
 " Replace text in place if using neovim
 if exists('&inccommand')

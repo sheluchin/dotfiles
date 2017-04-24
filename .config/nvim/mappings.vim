@@ -74,7 +74,7 @@ nnoremap <silent> [v ?\v^(\<\|\=\|\>){7}([^=].+)\?$<CR>
 nnoremap gb :ls<CR>:b<space>
 
 " Load my alex_vimrc
-noremap <leader>ev :tabe ~/.nvimrc<CR>
+noremap <leader>ev :tabe $MYVIMRC<CR>
 
 " Edit on a specific line
 noremap <leader>e :e+
