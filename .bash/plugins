@@ -1,5 +1,8 @@
 #! /bin/sh
 
+# bash-git-prompt
+GIT_PROMPT_ONLY_IN_REPO=1
+source $HOME/.bash-git-prompt/gitprompt.sh
 
 # Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
