@@ -13,7 +13,7 @@ if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 eval "$(pyenv virtualenv-init -)"
 export WORKON_HOME=$HOME/.pyenv/versions
 export PROJECT_HOME=$HOME/repos
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 source /usr/local/bin/virtualenvwrapper.sh
