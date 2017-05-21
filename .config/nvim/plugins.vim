@@ -2,8 +2,8 @@
 " Install and configure plugins
 " ============================================================
 " Install vim-plug if it's not installed already.
-if empty(glob('~/.nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.nvim/autoload/plug.vim --create-dirs
+if empty(glob('$XDG_CONFIG_HOME/nvim/autoload/plug.vim'))
+  silent !curl -fLo $XDG_CONFIG_HOME/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall
 endif
