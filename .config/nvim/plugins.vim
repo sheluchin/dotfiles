@@ -59,7 +59,7 @@ nnoremap <Leader>1 :T1
 nnoremap <F2> :call neoterm#toggle()<CR>
 
 " nerdtree
-let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeIgnore = ['\.pyc$', '__pycache__$']
 
 " Gundo
 let g:gundo_preview_bottom = 1
