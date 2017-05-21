@@ -31,6 +31,8 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 export GIT_EDITOR="$EDITOR"
 
+export XDG_CONFIG_HOME=$HOME/.config
+
 # Recursive globs with **
 shopt -s globstar
 

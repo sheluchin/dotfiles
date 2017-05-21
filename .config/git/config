@@ -1,0 +1,15 @@
+[user]
+    name = Alex Sheluchin
+    signingKey = 2FA4E9E5
+[core]
+    editor = vim
+[commit]
+    gpgSign = True
+[gpg]
+    program = gpg2
+[push]
+    default = current
+[alias]
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[include]
+    path = ~/.config/git/config.local
