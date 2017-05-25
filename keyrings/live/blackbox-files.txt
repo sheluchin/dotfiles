@@ -1,3 +1,0 @@
-.secrets
-.ssh/id_rsa
-sentry_mfa_recovery.txt
