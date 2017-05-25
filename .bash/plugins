@@ -20,5 +20,8 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+# Blackbox
+export GPG=gpg2
+
 # gpg-agent
 eval $(gpg-agent --daemon --allow-preset-passphrase)
