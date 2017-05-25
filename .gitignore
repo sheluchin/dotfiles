@@ -1,5 +1,5 @@
-.vim/plugged/
-.vim/autoload/plug.vim
+.config/nvim/plugged/
+.config/nvim/autoload/plug.vim
 
 *.swp
 .netrwhist
@@ -7,6 +7,11 @@ pubring.gpg~
 secring.gpg
 .secrets
 .ssh/id_rsa
+.ssh/known_hosts
+.ssh/config
 sentry_mfa_recovery.txt
 
 tags
+/keyrings/live/pubring.gpg~
+/keyrings/live/pubring.kbx~
+/keyrings/live/secring.gpg
