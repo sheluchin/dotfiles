@@ -9,7 +9,11 @@ bind Space:magic-space # pressing space after a history command like !! will exp
 
 # vi-mode
 set -o vi
+
+# Reminder: get list of bindings with `bind -p`
 bind -m vi-insert '"\C-l": clear-screen'
+bind -m vi-insert '"\C-p": history-substring-search-backward'
+bind -m vi-insert '"\C-n": history-substring-search-forward'
 
 # Show vi-mode
 bind 'set show-mode-in-prompt on'
