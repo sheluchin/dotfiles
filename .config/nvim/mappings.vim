@@ -59,10 +59,6 @@ nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
 " Select the item in the list with enter
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Map jj to Escape in insert and command mode.
-imap jj <Esc>
-cmap jj <c-c>
-"
 " Jump to next/previous merge conflict marker
 nnoremap <silent> ]v /\v^(\<\|\=\|\>){7}([^=].+)?$<CR>
 nnoremap <silent> [v ?\v^(\<\|\=\|\>){7}([^=].+)\?$<CR>

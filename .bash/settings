@@ -9,7 +9,6 @@ bind Space:magic-space # pressing space after a history command like !! will exp
 
 # vi-mode
 set -o vi
-bind -m vi-insert '"jj": vi-movement-mode'
 bind -m vi-insert '"\C-l": clear-screen'
 
 # Show vi-mode
