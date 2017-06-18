@@ -4,5 +4,5 @@ PATH="/usr/local/bin:$PATH"
 dir="`git rev-parse --git-dir`"
 trap 'rm -f "$dir/$$.tags"' EXIT
 git ls-files | \
-  ctags --tag-relative -L - -f"$dir/$$.tags" --languages=-javascript,sql
+  ctags --tag-relative -L -R --fields=+l --languages=python --python-kinds=-iv -f "$dir/$$.tags" $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))")
 mv "$dir/$$.tags" "$dir/tags"

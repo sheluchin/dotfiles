@@ -149,6 +149,4 @@ nnoremap <leader>j :lopen<CR>
 nnoremap <leader>k :lclose<CR>
 
 " Generate tags for your current virtualenv
-map <S-F11> :!ctags -R -f $VIRTUAL_ENV/tags $VIRTUAL_ENV/lib/python2.7/site-packages<CT>
-" ctags -aR $VIRTUAL_ENV/lib/python2.7/site-packages/ -o ./tags
-" set tags=$VIRTUAL_ENV/tags
+map <S-F11>:!ctags --tag-relative -L -R --fields=+l --languages=python --python-kinds=-iv -f "$dir/$$.tags" $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))")<cr>
