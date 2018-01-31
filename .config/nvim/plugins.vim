@@ -100,3 +100,6 @@ let g:tagbar_type_vimwiki = {
           \ , 'ctagsbin':'~/dotfiles/.nvim/scripts/vwtags.py'
           \ , 'ctagsargs': 'default'
           \ }
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                    \ 'syntax': 'markdown', 'ext': '.md'}]
+
