@@ -106,3 +106,5 @@ let g:python3_host_prog = '/home/alex/.pyenv/versions/3.5.3/bin/python3.5'
 if exists('&inccommand')
   set inccommand=split
 endif
+
+set mouse=a  " Let the mouse work
