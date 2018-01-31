@@ -25,3 +25,13 @@ export GPG=gpg2
 
 # gpg-agent
 eval $(gpg-agent --daemon --allow-preset-passphrase)
+
+export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
+if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+  export VISUAL="nvr -cc tabedit --remote-wait +'set bufhidden=wipe'"
+  export EDITOR="$VISUAL"
+  export GIT_EDITOR="$EDITOR"
+else
+  export VISUAL="nvim"
+fi
+alias v="$VISUAL"

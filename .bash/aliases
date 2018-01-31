@@ -20,7 +20,10 @@ alias gdc='git diff --cached'
 # -G : colorize the output
 alias ll='ls -AltrhG'
 
-alias vim='nvim'
+alias grep='grep --color=auto --exclude=*.pyc --exclude-dir=.git'
+
+alias vim='NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim'
+alias v="$VISUAL"
 
 # clipboard
 alias pbcopy='xclip -selection clipboard'

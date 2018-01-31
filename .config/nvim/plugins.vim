@@ -39,6 +39,7 @@ call plug#begin('~/.nvim/plugged')
     Plug 'machakann/vim-highlightedyank'
     Plug 'neomake/neomake'
     Plug 'vimwiki/vimwiki'
+    Plug 'mhinz/neovim-remote'
     " Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
