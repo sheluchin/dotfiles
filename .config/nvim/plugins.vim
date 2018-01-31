@@ -41,6 +41,10 @@ call plug#begin('~/.nvim/plugged')
     Plug 'vimwiki/vimwiki'
     Plug 'mhinz/neovim-remote'
     " Plug 'ryanoasis/vim-devicons'
+    Plug 'shime/vim-livedown'
+    Plug 'chrisbra/csv.vim'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 let g:indentLine_color_term = 153
