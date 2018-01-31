@@ -103,3 +103,7 @@ let g:tagbar_type_vimwiki = {
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                     \ 'syntax': 'markdown', 'ext': '.md'}]
 
+" neovim-remote
+if has('nvim')
+  let $VISUAL = 'nvr -cc split --remote-wait'
+endif
