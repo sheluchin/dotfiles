@@ -52,6 +52,7 @@ let g:tagbar_foldlevel=0
 let g:ackprg='ag'
 
 " vim-test
+let g:neoterm_default_mod = 'botright'
 let g:test#strategy = 'neoterm'
 let g:test#python#runner = 'pytest'
 let test#python#pytest#options = '-sv --cov-report=html --cov summary'
