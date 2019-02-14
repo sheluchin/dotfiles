@@ -35,3 +35,10 @@ else
   export VISUAL="nvim"
 fi
 alias v="$VISUAL"
+
+export BAT_THEME="GitHub"
+alias cat='bat'
+alias catr="fzf --preview 'bat --color \"always\" --style \"full\" {}'"
+
+# fzf-marks
+source $HOME/repos/fzf-marks/fzf-marks.plugin.bash

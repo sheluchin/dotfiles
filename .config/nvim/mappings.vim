@@ -39,7 +39,12 @@ nnoremap <leader>tc :call neoterm#clear()cr>
 nnoremap <leader>tr :call neoterm#do('!!')<cr>
 
 " Ack searching
-nmap <leader>a <Esc>:Ack!
+nmap <leader>b <Esc>:Buffers<CR>
+nmap <leader>a <Esc>:Ag<CR>
+noremap <leader>A <Esc>:VimwikiAg<CR>
+nmap <leader>f <Esc>:Files<CR>
+nmap <leader>/ <Esc>:History/<CR>
+nmap <leader>: <Esc>:History:<CR>
 
 " Load the Gundo window
 map <leader>g :GundoToggle<CR>
@@ -150,3 +155,6 @@ nnoremap <leader>k :lclose<CR>
 
 " Generate tags for your current virtualenv
 map <S-F11>:!ctags --tag-relative -L -R --fields=+l --languages=python --python-kinds=-iv -f "$dir/$$.tags" $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))")<cr>
+
+" vimwiki
+nnoremap <Leader>v :Files ~/vimwiki/<cr>

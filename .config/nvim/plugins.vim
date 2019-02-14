@@ -45,7 +45,20 @@ call plug#begin('~/.nvim/plugged')
     Plug 'chrisbra/csv.vim'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'junegunn/fzf'
+    Plug 'junegunn/fzf.vim'
 call plug#end()
+
+" FZF
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>,
+  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \                 <bang>0)
+command! -bang -nargs=* VimwikiAg
+  \ call fzf#vim#ag(<q-args>,
+  \                 {'dir': '~/vimwiki/'},
+  \                 <bang>0)
 
 let g:indentLine_color_term = 153
 let g:tagbar_foldlevel=0
