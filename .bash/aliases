@@ -28,3 +28,7 @@ alias v="$VISUAL"
 # clipboard
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
+
+alias wttr='curl wttr.in/hamilton?m'
+alias myip='curl https://ipinfo.io/ip'
+alias unpip='pip freeze | xargs pip uninstall -y'

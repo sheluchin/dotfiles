@@ -1,5 +1,9 @@
 #! /bin/sh
 
+ch () {
+    curl cheat.sh/"$1";
+}
+
 # Restore a postgres database given the filename
 pgrest () {
     : ${DB_NAME:?'DB_NAME not set'};
