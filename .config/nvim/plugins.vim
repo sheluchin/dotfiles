@@ -101,8 +101,13 @@ let g:deoplete#enable_at_startup = 1
 
 " Neomake
 autocmd! BufWritePost * Neomake
+" call neomake#configure#automake('nrwi', 500)
 nnoremap <leader>j :lopen<CR>
 nnoremap <leader>k :lclose<CR>
+
+" vim-gitgutter -- closely related to neomake as they both affect the signs column
+set updatetime=100
+nnoremap <F9> :GitGutterFold<CR>:GitGutterLineHighlightsToggle<CR>
 
 " VimWiki
 let g:tagbar_type_vimwiki = {
