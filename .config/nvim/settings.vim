@@ -15,6 +15,7 @@ set wildmenu                  " Menu completion in command mode on <Tab>
 set wildmode=full             " <Tab> cycles between all matching choices.
 set colorcolumn=120           " Display a line at 120 columns
 set clipboard=unnamedplus     " Use system clipboard
+hi Comment cterm=italic       " italicize comments
 
 " Ignore these files when completing
 set wildignore+=*.o,*.obj,.git,*.pyc
