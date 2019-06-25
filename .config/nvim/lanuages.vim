@@ -27,3 +27,5 @@ if 'VIRTUAL_ENV' in os.environ:
 EOF
 endif
 
+" Markdown
+autocmd FileType markdown,vimwiki setlocal sw=2 tw=80 colorcolumn=80
