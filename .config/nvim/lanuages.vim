@@ -20,12 +20,13 @@ import os.path
 import sys
 import vim
 if 'VIRTUAL_ENV' in os.environ:
-    project_base_dir = os.environ['VIRTUAL_ENV']
-    sys.path.insert(0, project_base_dir)
-    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-    execfile(activate_this, dict(__file__=activate_this))
+    # Looted from virtualenv; should not require modification, since it's defined relatively
+    # See: https://stackoverflow.com/a/33637414
+    activator = '/home/alex/dotfiles/.config/nvim/activate_this.py'
+    with open(activator) as f:
+        exec(f.read(), {'__file__': activator})
 EOF
 endif
 
 " Markdown
-autocmd FileType markdown,vimwiki setlocal sw=2 tw=80 colorcolumn=80
+autocmd FileType markdown,vimwiki setlocal sw=2 tw=80 colorcolumn=80 spell
