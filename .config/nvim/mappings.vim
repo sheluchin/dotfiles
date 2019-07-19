@@ -46,8 +46,9 @@ nmap <leader>f <Esc>:Files<CR>
 nmap <leader>/ <Esc>:History/<CR>
 nmap <leader>: <Esc>:History:<CR>
 
-" Load the Gundo window
-map <leader>g :GundoToggle<CR>
+
+" Load the Mundo window
+map <leader>g :MundoToggle<CR>
 "
 " Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>

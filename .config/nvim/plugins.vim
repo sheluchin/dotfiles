@@ -28,6 +28,7 @@ call plug#begin('~/.nvim/plugged')
     Plug 'nvie/vim-flake8'
     Plug 'scrooloose/nerdtree'
     Plug 'sjl/gundo.vim'
+    Plug 'simnalamburt/vim-mundo'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-eunuch'
     Plug 'tpope/vim-fugitive'
@@ -80,8 +81,9 @@ nnoremap <F2> :call neoterm#toggle()<CR>
 " nerdtree
 let NERDTreeIgnore = ['\.pyc$', '__pycache__$']
 
-" Gundo
-let g:gundo_preview_bottom = 1
+" Mundo
+set undofile
+set undodir=~/.nvim/undo
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
