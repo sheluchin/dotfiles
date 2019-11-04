@@ -129,6 +129,10 @@ noremap <down> <C-W>-
 noremap <left> 3<C-W><
 noremap <right> 3<C-W>>
 
+" Window Resizing
+nnoremap <Leader>- <C-w>_
+nnoremap <Leader>= <C-w>=
+
 " Abbrevs
 inoremap fs flightstrip
 inoremap FS FlightStrip
