@@ -52,3 +52,5 @@ shopt -s globstar
 # ctrl-s for reverse-i-search 
 [[ $- == *i* ]] && stty -ixon
 
+# linuxbrew
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
