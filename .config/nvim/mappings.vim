@@ -24,6 +24,10 @@ nmap <F6> :NERDTreeFind<CR>
 
 " Fugitive
 nmap <F12> :Gstatus<CR>
+nnoremap <Leader>hs :Git add -p -- %<cr>
+
+" vim-signify
+nnoremap <Leader>hu :SignifyHunkUndo<cr>
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>

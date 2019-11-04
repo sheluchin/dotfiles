@@ -12,8 +12,8 @@ call plug#begin('~/.nvim/plugged')
     Plug 'NLKNguyen/papercolor-theme'
     Plug 'Shougo/deoplete.nvim'
     Plug 'Yggdroot/indentLine'
-    Plug 'airblade/vim-gitgutter'
     Plug 'altercation/vim-colors-solarized'
+    Plug 'mhinz/vim-signify'
     Plug 'dahu/vim-fanfingtastic'
     Plug 'eparreno/vim-l9'
     Plug 'janko-m/vim-test'
@@ -107,10 +107,9 @@ autocmd! BufWritePost * Neomake
 nnoremap <leader>j :lopen<CR>
 nnoremap <leader>k :lclose<CR>
 
-" vim-gitgutter -- closely related to neomake as they both affect the signs column
-set updatetime=100
-nnoremap <F9> :GitGutterFold<CR>:GitGutterLineHighlightsToggle<CR>
 
+" vim-signify
+let g:signify_vcs_list = [ 'git', ]
 " VimWiki
 let g:tagbar_type_vimwiki = {
           \   'ctagstype':'vimwiki'
