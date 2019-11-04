@@ -13,7 +13,7 @@ set background=light          " We are using dark background in vim
 set title                     " show title in console title bar
 set wildmenu                  " Menu completion in command mode on <Tab>
 set wildmode=full             " <Tab> cycles between all matching choices.
-set colorcolumn=120           " Display a line at 120 columns
+set colorcolumn=80,120        " Display a line at 120 columns
 set clipboard=unnamedplus     " Use system clipboard
 hi Comment cterm=italic       " italicize comments
 
@@ -52,7 +52,7 @@ set shiftround              " rounds indent to a multiple of shiftwidth
 set matchpairs+=<:>         " show matching <> (html mainly) as well
 set foldmethod=indent       " allow us to fold on indents
 set foldlevel=99            " don't fold by default
-hi Folded ctermbg=white     " give folds a white background
+hi Folded ctermbg=254       " give folds a light background
 set cindent                 " Indent according to c rules
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
