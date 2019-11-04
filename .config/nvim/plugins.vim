@@ -27,7 +27,6 @@ call plug#begin('~/.nvim/plugged')
     Plug 'nhooyr/neoman.vim'
     Plug 'nvie/vim-flake8'
     Plug 'scrooloose/nerdtree'
-    Plug 'sjl/gundo.vim'
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'simnalamburt/vim-mundo'
     Plug 'tpope/vim-commentary'
