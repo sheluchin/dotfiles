@@ -46,6 +46,13 @@ fabsync () {
 pf () {
     pip freeze | grep -i "$1"
 }
+function upnvim ()
+{
+    wget -P /tmp/ "https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage"
+    mv /tmp/nvim.appimage ~/.local/bin/
+    chmod +x ~/.local/bin/nvim.appimage
+}
+
 function catsh () {
     cat "$1" | ./src/manage.py shell_plus --quiet-load
 }
