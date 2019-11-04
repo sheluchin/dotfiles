@@ -46,6 +46,16 @@ fabsync () {
 pf () {
     pip freeze | grep -i "$1"
 }
+
+# Move the latest file in ~/Downloads to a given location
+function mvd() {
+    unset -v latest
+    for file in "$HOME/Downloads"/*; do
+        [[ $file -nt $latest ]] && latest=$file
+    done
+    mv -v "$latest" "$1"
+}
+
 function upnvim ()
 {
     wget -P /tmp/ "https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage"
