@@ -6,7 +6,7 @@
 [commit]
     gpgSign = True
 [gpg]
-    program = gpg2
+    program = gpg
 [push]
     default = current
 [alias]
