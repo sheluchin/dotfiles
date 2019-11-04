@@ -39,3 +39,6 @@ alias catr="fzf --preview 'bat --color \"always\" --style \"full\" {}'"
 
 # fzf-marks
 source $HOME/repos/fzf-marks/fzf-marks.plugin.bash
+
+# direnv
+eval "$(direnv hook bash)"
