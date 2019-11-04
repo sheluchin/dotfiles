@@ -1,6 +1,6 @@
 # https://askubuntu.com/a/200935
-if ps aux | grep "chrome" > /dev/null
- then xdotool windowactivate $(xdotool search --onlyvisible --name "Google Chrome")
- else google-chrome&
+if ps aux | grep "firefox" > /dev/null
+ then xdotool windowactivate $(xdotool search --onlyvisible --name "Firefox")
+ else GDK_SCALE=1 firefox
 fi
 
