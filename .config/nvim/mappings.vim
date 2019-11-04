@@ -85,10 +85,6 @@ noremap <leader>ev :tabe $MYVIMRC<CR>
 " Edit on a specific line
 noremap <leader>e :e+
 
-" Go to matching parenthesis with <Tab>
-map <Tab> %
-vmap <Tab> %
-
 " Select the pasted text.
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
