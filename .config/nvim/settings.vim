@@ -101,7 +101,7 @@ autocmd BufEnter term://* startinsert
 
 """ Neovim Python 3 support
 let g:python_host_prog = '/home/alex/.pyenv/versions/2.7.12/bin/python2.7'
-let g:python3_host_prog = '/home/alex/.pyenv/versions/3.5.3/bin/python3.5'
+let g:python3_host_prog = '/home/alex/.pyenv/versions/3.7.4/bin/python3.7'
 
 " Replace text in place if using neovim
 if exists('&inccommand')
