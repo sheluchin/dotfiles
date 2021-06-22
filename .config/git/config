@@ -3,6 +3,13 @@
     signingKey = 2FA4E9E5
 [core]
     editor = vim
+    pager = delta
+[delta]
+    plus-color = "#012800"
+    minus-color = "#340001"
+    syntax-theme = GitHub
+[interactive]
+    diffFilter = delta --color-only
 [commit]
     gpgSign = True
 [gpg]
