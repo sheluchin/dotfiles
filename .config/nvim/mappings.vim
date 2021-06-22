@@ -130,10 +130,7 @@ nnoremap <Leader>- <C-w>_
 nnoremap <Leader>= <C-w>=
 
 " Abbrevs
-inoremap fs flightstrip
-inoremap FS FlightStrip
 inoremap .ob .objects.
-inoremap lbl Event.LABEL_
 
 " HighlightModelFields
 nnoremap <silent> ]h /^\s\{4}\zs[a-z_]*\ze = models<CR>
