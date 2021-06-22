@@ -4,6 +4,9 @@
 GIT_PROMPT_ONLY_IN_REPO=1
 source $HOME/.bash-git-prompt/gitprompt.sh
 
+# gpg
+export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+
 # Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
