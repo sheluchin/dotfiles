@@ -116,12 +116,6 @@ let NERDTreeIgnore = ['\.pyc$', '__pycache__$']
 set undofile
 set undodir=~/.nvim/undo
 
-" UltiSnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical"
-
 " Automatically open pop-up window for completions.
 let g:acp_completeoptPreview=1
 
