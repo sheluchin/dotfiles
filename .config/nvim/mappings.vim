@@ -170,5 +170,11 @@ nnoremap <leader>k :lclose<CR>
 " Generate tags for your current virtualenv
 map <S-F11>:!ctags --tag-relative -L -R --fields=+l --languages=python --python-kinds=-iv -f "$dir/$$.tags" $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))")<cr>
 
+" Generate a table of contents from a GitHub Markdown file
+nmap <Leader>m :r !/home/alex/repos/FOSS/github-markdown-toc/gh-md-toc %<CR>
+
 " vimwiki
 nnoremap <Leader>v :Files ~/vimwiki/<cr>
+
+" Insert iso8601 timestamp
+nnoremap <Leader>D :r!date "+\%FT\%T\%z"<CR>
