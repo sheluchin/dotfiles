@@ -48,7 +48,12 @@ call plug#begin('~/.nvim/plugged')
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim', " { 'commit': '9cc54fb3d3bfb44d7c6d549c78f0a125ec3281aa' }
     Plug 'frazrepo/vim-rainbow', {'for': 'clojure'}
+    Plug 'mhinz/vim-startify'
 call plug#end()
+
+
+" vim-startify
+let g:startify_change_to_dir = 0
 
 " FZF
 function! FloatingFZF()
