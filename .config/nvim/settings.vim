@@ -16,6 +16,7 @@ set wildmode=full             " <Tab> cycles between all matching choices.
 set colorcolumn=80,120        " Display a line at 120 columns
 set clipboard=unnamedplus     " Use system clipboard
 hi Comment cterm=italic       " italicize comments
+hi ErrorMsg  ctermfg=124 ctermbg=225 gui=bold guifg=Blue guibg=LightCyan
 
 " Ignore these files when completing
 set wildignore+=*.o,*.obj,.git,*.pyc
