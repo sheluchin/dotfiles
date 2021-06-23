@@ -57,6 +57,11 @@ nmap <leader>f <Esc>:call fzf#vim#files('', fzf#vim#with_preview('right'))<CR>
 nmap <leader>/ <Esc>:History/<CR>
 nmap <leader>: <Esc>:History:<CR>
 
+" peak at definition of tag under cursor
+nnoremap <F10> <C-W>}
+
+" Coc jump to definition
+nnoremap <C-]> :call CocAction('jumpDefinition')<CR>
 
 " Load the Mundo window
 map <leader>g :MundoToggle<CR>

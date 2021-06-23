@@ -10,6 +10,7 @@ endif
 
 call plug#begin('~/.nvim/plugged')
     Plug 'NLKNguyen/papercolor-theme'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'Yggdroot/indentLine'
     Plug 'altercation/vim-colors-solarized'
     Plug 'mhinz/vim-signify'
@@ -162,3 +163,14 @@ hi! link VimwikiHeader6 markdownH6
 if has('nvim')
   let $VISUAL = 'nvr -cc split --remote-wait'
 endif
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
