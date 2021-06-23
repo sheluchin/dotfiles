@@ -85,6 +85,10 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 nnoremap <silent> ]v /\v^(\<\|\=\|\>){7}([^=].+)?$<CR>
 nnoremap <silent> [v ?\v^(\<\|\=\|\>){7}([^=].+)\?$<CR>
 
+" Jump to next/prev terminal command
+nnoremap <silent> ]; /^+\d\d:\d\d \$ \zs.*$<CR>
+nnoremap <silent> [; ?^+\d\d:\d\d \$ \zs.*$<CR>
+
 " Highlight merge conflict markers
 " match Todo '\v^(\<|\=|\>){7}([^=].+)?$'
 
