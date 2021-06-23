@@ -46,7 +46,6 @@ nnoremap <leader>tr :T !!<cr>
 " xmap gx <Plug>(neoterm-repl-send)
 " nmap gx <Plug>(neoterm-repl-send)
 
-" Ack searching
 " Fuzzy searching
 nmap <leader>B <Esc>:BLines<CR>
 nmap <leader>G <Esc>:GFiles?<CR>
