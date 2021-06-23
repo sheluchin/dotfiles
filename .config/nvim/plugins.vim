@@ -45,10 +45,16 @@ call plug#begin('~/.nvim/plugged')
     Plug 'vim-airline/vim-airline-themes'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim', " { 'commit': '9cc54fb3d3bfb44d7c6d549c78f0a125ec3281aa' }
+    Plug 'vim-scripts/VimClojure'
     Plug 'frazrepo/vim-rainbow', {'for': 'clojure'}
+    Plug 'guns/vim-sexp',    {'for': 'clojure'}
+    Plug 'liquidz/vim-iced', {'for': 'clojure'}
+    Plug 'liquidz/vim-iced-project-namespaces', {'for': 'clojure', 'on': 'IcedBrowseNamespace'}
+    Plug 'bhurlow/vim-parinfer'
     Plug 'mhinz/vim-startify'
 call plug#end()
 
+let g:iced_enable_default_key_mappings = v:true
 
 " vim-startify
 let g:startify_change_to_dir = 0
