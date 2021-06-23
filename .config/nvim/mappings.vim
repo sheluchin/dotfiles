@@ -28,6 +28,7 @@ nnoremap <Leader>hs :Git add -p -- %<cr>
 
 " vim-signify
 nnoremap <Leader>hu :SignifyHunkUndo<cr>
+nnoremap <Leader>hd :SignifyHunkDiff<cr>
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
