@@ -43,10 +43,14 @@ nnoremap <leader>tc :call neoterm#clear()cr>
 nnoremap <leader>tr :call neoterm#do('!!')<cr>
 
 " Ack searching
+" Fuzzy searching
+nmap <leader>B <Esc>:BLines<CR>
+nmap <leader>G <Esc>:GFiles?<CR>
+nmap <leader>C <Esc>:Commits<CR>
 nmap <leader>b <Esc>:Buffers<CR>
 nmap <leader>a <Esc>:Ag<CR>
 noremap <leader>A <Esc>:VimwikiAg<CR>
-nmap <leader>f <Esc>:Files<CR>
+nmap <leader>f <Esc>:call fzf#vim#files('', fzf#vim#with_preview('right'))<CR>
 nmap <leader>/ <Esc>:History/<CR>
 nmap <leader>: <Esc>:History:<CR>
 

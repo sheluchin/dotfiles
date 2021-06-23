@@ -46,12 +46,34 @@ call plug#begin('~/.nvim/plugged')
     Plug 'chrisbra/csv.vim'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'junegunn/fzf'
-    Plug 'junegunn/fzf.vim'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim', " { 'commit': '9cc54fb3d3bfb44d7c6d549c78f0a125ec3281aa' }
     Plug 'frazrepo/vim-rainbow', {'for': 'clojure'}
 call plug#end()
 
 " FZF
+function! FloatingFZF()
+  let buf = nvim_create_buf(v:false, v:true)
+  call setbufvar(buf, '&signcolumn', 'no')
+
+  let height = float2nr(40)
+  let width = float2nr(120)
+  let horizontal = float2nr((&columns - width) / 2)
+  let vertical = 6
+
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': vertical,
+        \ 'col': horizontal,
+        \ 'width': width,
+        \ 'height': height,
+        \ 'style': 'minimal'
+        \ }
+
+  call nvim_open_win(buf, v:true, opts)
+endfunction
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+
 command! -bang -nargs=* Ag
   \ call fzf#vim#ag(<q-args>,
   \                 <bang>0 ? fzf#vim#with_preview('up:60%')
