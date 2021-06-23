@@ -102,8 +102,8 @@ let test#filename_modifier = ':p'  " Use absolute paths
 " neoterm
 nnoremap <Leader>r TREPLSend
 vnoremap <Leader>r '<,'>TREPLSend
-nnoremap <Leader>1 :T1 
-nnoremap <F2> :call neoterm#toggle()<CR>
+nnoremap <Leader>1 :T1
+nnoremap <F2> :Ttoggle<CR>
 
 " nerdtree
 let NERDTreeIgnore = ['\.pyc$', '__pycache__$']

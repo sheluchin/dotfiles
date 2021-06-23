@@ -41,7 +41,10 @@ map <Leader>tl :TestLast<CR>
 nnoremap <leader>tq :call neoterm#close_all()<cr>
 nnoremap <leader>tc :call neoterm#clear()cr>
 " Repeat last command
-nnoremap <leader>tr :call neoterm#do('!!')<cr>
+nnoremap <leader>tr :T !!<cr>
+" nmap gxx <Plug>(neoterm-repl-send-line)
+" xmap gx <Plug>(neoterm-repl-send)
+" nmap gx <Plug>(neoterm-repl-send)
 
 " Ack searching
 " Fuzzy searching
