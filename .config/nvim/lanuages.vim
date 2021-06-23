@@ -23,8 +23,7 @@ if 'VIRTUAL_ENV' in os.environ:
     # Looted from virtualenv; should not require modification, since it's defined relatively
     # See: https://stackoverflow.com/a/33637414
     activator = '/home/alex/dotfiles/.config/nvim/activate_this.py'
-    with open(activator) as f:
-        exec(f.read(), {'__file__': activator})
+    with open(activator) as f: exec(f.read(), {'__file__': activator})
 EOF
 endif
 
