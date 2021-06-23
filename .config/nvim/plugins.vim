@@ -124,10 +124,8 @@ let g:acp_completeoptPreview=1
 
 " Neomake
 autocmd! BufWritePost * Neomake
-" call neomake#configure#automake('nrwi', 500)
 nnoremap <leader>j :lopen<CR>
 nnoremap <leader>k :lclose<CR>
-
 
 " vim-signify
 let g:signify_vcs_list = [ 'git', ]
