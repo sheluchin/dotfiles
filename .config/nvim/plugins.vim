@@ -96,7 +96,7 @@ let g:ackprg='ag'
 let g:neoterm_default_mod = 'botright'
 let g:test#strategy = 'neoterm'
 let g:test#python#runner = 'pytest'
-let test#python#pytest#options = '-sv --cov-report=html --cov summary'
+let test#python#pytest#options = '-sv --cov-report=html --cov .'
 let test#filename_modifier = ':p'  " Use absolute paths
 
 " neoterm
