@@ -133,18 +133,33 @@ nnoremap <leader>k :lclose<CR>
 
 " vim-signify
 let g:signify_vcs_list = [ 'git', ]
+
 " VimWiki
+nnoremap <Leader>v :Files ~/vimwiki/<cr>
 let g:tagbar_type_vimwiki = {
-          \   'ctagstype':'vimwiki'
+          \   'ctagstype':'markdown'
           \ , 'kinds':['h:header']
           \ , 'sro':'&&&'
           \ , 'kind2scope':{'h':'header'}
           \ , 'sort':0
-          \ , 'ctagsbin':'~/dotfiles/.nvim/scripts/vwtags.py'
-          \ , 'ctagsargs': 'default'
+          \ , 'ctagsbin':'~/dotfiles/.config/nvim/vwtags.py'
+          \ , 'ctagsargs': 'markdown'
           \ }
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                    \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_root = $HOME . '/vimwiki/'
+let wiki = {}
+let wiki.path = $HOME . '/vimwiki/'
+let wiki.nested_syntaxes = {'python': 'python', 'solidity': 'sol', 'sol': 'solidity'}
+let wiki.syntax = 'markdown'
+let wiki.ext = '.md'
+let wiki.maxhi = 1
+let g:vimwiki_list = [wiki]
+" Vimwiki Header Colors
+hi! link VimwikiHeader1 markdownH1
+hi! link VimwikiHeader2 markdownH2
+hi! link VimwikiHeader3 markdownH3
+hi! link VimwikiHeader4 markdownH4
+hi! link VimwikiHeader5 markdownH5
+hi! link VimwikiHeader6 markdownH6
 
 " neovim-remote
 if has('nvim')
