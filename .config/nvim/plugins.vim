@@ -45,13 +45,25 @@ call plug#begin('~/.nvim/plugged')
     Plug 'vim-airline/vim-airline-themes'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim', " { 'commit': '9cc54fb3d3bfb44d7c6d549c78f0a125ec3281aa' }
+    Plug 'tomlion/vim-solidity'
+    Plug 'cespare/vim-toml'
     Plug 'vim-scripts/VimClojure'
     Plug 'frazrepo/vim-rainbow', {'for': 'clojure'}
+    Plug 'tpope/vim-abolish'
     Plug 'guns/vim-sexp',    {'for': 'clojure'}
     Plug 'liquidz/vim-iced', {'for': 'clojure'}
     Plug 'liquidz/vim-iced-project-namespaces', {'for': 'clojure', 'on': 'IcedBrowseNamespace'}
+    Plug 'tpope/vim-salve'
+    Plug 'tpope/vim-projectionist'
+    Plug 'tpope/vim-dispatch'
+    Plug 'tpope/vim-classpath'
     Plug 'bhurlow/vim-parinfer'
+    Plug 'neo4j-contrib/cypher-vim-syntax'
     Plug 'mhinz/vim-startify'
+    Plug '5long/pytest-vim-compiler'
+    Plug 'psf/black', { 'branch': 'stable' }
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-treesitter/playground'
 call plug#end()
 
 let g:iced_enable_default_key_mappings = v:true
