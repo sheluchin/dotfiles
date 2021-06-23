@@ -10,7 +10,6 @@ endif
 
 call plug#begin('~/.nvim/plugged')
     Plug 'NLKNguyen/papercolor-theme'
-    Plug 'Shougo/deoplete.nvim'
     Plug 'Yggdroot/indentLine'
     Plug 'altercation/vim-colors-solarized'
     Plug 'mhinz/vim-signify'
@@ -116,13 +115,6 @@ let g:UltiSnipsEditSplit="vertical"
 
 " Automatically open pop-up window for completions.
 let g:acp_completeoptPreview=1
-
-" Deoplete
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-let g:deoplete#enable_at_startup = 1
 
 " Neomake
 autocmd! BufWritePost * Neomake
