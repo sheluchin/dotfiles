@@ -111,7 +111,7 @@ nmap <F4> :tabedit %<CR>      " Open the current window in a new tab
 nmap <F5> :tabclose<CR>       " Close the current tab. Returns to old position
 
 " Loads files containing search term into the arg list for argdo operations
-nnore <leader>A :args `ack -l `<left>
+" nnore <leader>A :args `ack -l `<left>
 
 " Toggle diff
 nnoremap <silent> <Leader>df :call DiffToggle()<CR>
