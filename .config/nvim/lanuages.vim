@@ -29,3 +29,6 @@ endif
 
 " Markdown
 autocmd FileType markdown,vimwiki setlocal sw=2 tw=80 colorcolumn=80 spell
+
+" clojure
+au FileType cljs,clj call rainbow#load()

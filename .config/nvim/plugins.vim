@@ -48,6 +48,7 @@ call plug#begin('~/.nvim/plugged')
     Plug 'vim-airline/vim-airline-themes'
     Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
+    Plug 'frazrepo/vim-rainbow', {'for': 'clojure'}
 call plug#end()
 
 " FZF
