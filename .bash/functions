@@ -22,27 +22,6 @@ or () {
     open "$(find $HOME/Downloads/ -name 'report (*' | sort -t \( -g -k 2 | tail -1)";
 }
 
-# Activate my virtualenv and go to the project folder
-woa () {
-    . "${AIM_DIR}env/bin/activate";
-    cd "${AIM_DIR}aim";
-}
-
-# Sync my personal firebase with another one
-fabsync () {
-    if [[ "$1" == "prod" ]]; then
-        FIREBASE_URL="$FIREBASE_URL_PROD";
-    else
-        FIREBASE_URL="$FIREBASE_URL_DEIMOS";
-    fi
-
-    FIREBASE_BACKUP="firebase_deimos.json";
-    echo "$FIREBASE_URL";
-    curl "$FIREBASE_URL" > "$FIREBASE_BACKUP";
-    curl -X DELETE "${FIREBASE_URL_ALEX}.json";
-    curl -X PUT -d "@firebase_deimos.json" "${FIREBASE_URL_ALEX}airports.json";
-}
-
 pf () {
     pip freeze | grep -i "$1"
 }

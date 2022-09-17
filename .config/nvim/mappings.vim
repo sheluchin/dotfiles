@@ -145,12 +145,6 @@ noremap <right> 3<C-W>>
 nnoremap <Leader>- <C-w>_
 nnoremap <Leader>= <C-w>=
 
-" Abbrevs
-inoremap .ob .objects.
-
-" HighlightModelFields
-nnoremap <silent> ]h /^\s\{4}\zs[a-z_]*\ze = models<CR>
-
 " Exit terminal emulator back to normal mode
 tnoremap jk <C-\><C-n>
 
