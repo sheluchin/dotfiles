@@ -24,7 +24,7 @@ call plug#begin('~/.nvim/plugged')
     " Plug 'nvie/vim-flake8'
     Plug 'scrooloose/nerdtree'
     Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'simnalamburt/vim-mundo'
+    Plug 'mbbill/undotree'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-eunuch'
     Plug 'tpope/vim-fugitive'
@@ -121,7 +121,7 @@ nnoremap <F2> :Ttoggle<CR>
 " nerdtree
 let NERDTreeIgnore = ['\.pyc$', '__pycache__$']
 
-" Mundo
+" Undotree
 set undofile
 set undodir=~/.nvim/undo
 
