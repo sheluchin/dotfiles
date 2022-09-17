@@ -38,6 +38,10 @@ map <Leader>tn :TestNearest --reuse-db<CR>
 map <Leader>tl :TestLast<CR>
 
 " neoterm
+nnoremap <Leader>r TREPLSend
+vnoremap <Leader>r '<,'>TREPLSend
+nnoremap <Leader>1 :T1
+nnoremap <F2> :Ttoggle<CR>
 nnoremap <leader>tq :call neoterm#close_all()<cr>
 nnoremap <leader>tc :call neoterm#clear()cr>
 " Repeat last command
@@ -61,8 +65,35 @@ nmap <leader>: <Esc>:History:<CR>
 " peak at definition of tag under cursor
 nnoremap <F10> <C-W>}
 
-" Coc jump to definition
+" coc.nvim
+" jump to definition
 nnoremap <C-]> :call CocAction('jumpDefinition')<CR>
+" float window confirmation
+inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
+" snippet navigation
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+" coc.nvim / clojure-lsp
+nnoremap <silent> crmf :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'move-form', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1, input("File: ", "", "file")]})<CR>
+nnoremap <silent> crml :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'move-to-let', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1, input('Binding name: ')]})<CR>
+nnoremap <silent> crel :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'expand-let', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
+nnoremap <silent> crcc :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'cycle-coll', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
+nnoremap <silent> crdk :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'destructure-keys', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
+nnoremap <silent> cref :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'extract-function', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1, input('Function name: ')]})<CR>
+nnoremap <silent> crfe :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'create-function', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
+nnoremap <silent> <C-r>k :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'move-coll-entry-up', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
+nnoremap <silent> <C-r>j  :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'move-coll-entry-down', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
+nmap <localleader>cc :Commands<cr>
+nmap <leader>rn <Plug>(coc-rename)
+nmap <LocalLeader>tw \wdoto) tap><ESC>
+nmap <leader>ca  <Plug>(coc-codeaction-selected)
+nmap <leader>i <Plug>(coc-implementation)
+nmap <leader>u <Plug>(coc-references)
+nmap <silent> gd <Plug>(coc-definition)
 
 " Load the Mundo window
 map <leader>g :MundoToggle<CR>
@@ -162,7 +193,7 @@ autocmd BufReadPost location-list nnoremap <buffer> <CR> <CR>
 " nnoremap <silent> ]C /\v^\d{2}\:\d{2}\s\$\s\zs.*\ze<CR>
 " nnoremap <sient> [C ?\v^\d{2}\:\d{2}\s\$\s\zs.*\ze<CR>
 
-" Linters
+" Linters / Neomake
 nnoremap <leader>j :lopen<CR>
 nnoremap <leader>k :lclose<CR>
 
@@ -177,3 +208,23 @@ nnoremap <Leader>v :Files ~/vimwiki/<cr>
 
 " Insert iso8601 timestamp
 nnoremap <Leader>D :r!date "+\%FT\%T\%z"<CR>
+
+" clojure / vim-iced
+nnoremap <Leader>if :IcedEval ( *1)<Left><Left><Left><Left>
+nnoremap <Leader>id :IcedEval (lambdaisland.deep-diff2/diff *2 *1)<CR>
+nnoremap <LocalLeader>tw \wdoto) tap><ESC>
+nnoremap <LocalLeader>tt \idoto) tap><ESC>
+nnoremap <LocalLeader>bb :call fzf#run({'source': 'bb tasks \| tail -n +3 \| cut -f1 -d " "', 'sink': 'T bb'})<cr>
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" yanky
+lua << EOF
+vim.keymap.set({"n","x"}, "p", "<Plug>(YankyPutAfter)")
+vim.keymap.set({"n","x"}, "P", "<Plug>(YankyPutBefore)")
+vim.keymap.set({"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
+vim.keymap.set({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
+vim.keymap.set("n", "<c-n>", "<Plug>(YankyCycleForward)")
+vim.keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)")
+EOF

@@ -112,12 +112,6 @@ let g:test#python#runner = 'pytest'
 let test#python#pytest#options = '-sv --cov-report=html --cov .'
 let test#filename_modifier = ':p'  " Use absolute paths
 
-" neoterm
-nnoremap <Leader>r TREPLSend
-vnoremap <Leader>r '<,'>TREPLSend
-nnoremap <Leader>1 :T1
-nnoremap <F2> :Ttoggle<CR>
-
 " nerdtree
 let NERDTreeIgnore = ['\.pyc$', '__pycache__$']
 
@@ -130,14 +124,11 @@ let g:acp_completeoptPreview=1
 
 " Neomake
 autocmd! BufWritePost * Neomake
-nnoremap <leader>j :lopen<CR>
-nnoremap <leader>k :lclose<CR>
 
 " vim-signify
 let g:signify_vcs_list = [ 'git', ]
 
 " VimWiki
-nnoremap <Leader>v :Files ~/vimwiki/<cr>
 let g:tagbar_type_vimwiki = {
           \   'ctagstype':'markdown'
           \ , 'kinds':['h:header']
@@ -167,9 +158,6 @@ hi! link VimwikiHeader6 markdownH6
 if has('nvim')
   let $VISUAL = 'nvr -cc split --remote-wait'
 endif
-
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
