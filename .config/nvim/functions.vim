@@ -87,7 +87,7 @@ endfunction
 
 function! PushCurrentBranch()
     " Runs ':Git push origin {branch name}'
-    let @b = 'Git push origin ' . fugitive#head()
+    let @b = 'Git push origin ' . FugitiveHead()
     exe @b
 endfunction
 
