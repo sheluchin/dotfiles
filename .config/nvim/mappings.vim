@@ -23,7 +23,7 @@ map <leader>n :NERDTreeToggle<CR>
 nmap <F6> :NERDTreeFind<CR>
 
 " Fugitive
-nmap <F12> :Gstatus<CR>
+nmap <F12> :Git<CR>
 nnoremap <Leader>hs :Git add -p -- %<cr>
 
 " vim-signify
@@ -54,6 +54,7 @@ nmap <leader>b <Esc>:Buffers<CR>
 nmap <leader>a <Esc>:Ag<CR>
 noremap <leader>A <Esc>:VimwikiAg<CR>
 nmap <leader>f <Esc>:call fzf#vim#files('', fzf#vim#with_preview('right'))<CR>
+nmap <leader>f <Esc>:GFiles<CR>
 nmap <leader>/ <Esc>:History/<CR>
 nmap <leader>: <Esc>:History:<CR>
 
