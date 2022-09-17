@@ -1,7 +1,7 @@
 " ==========================================================
 " Basic Settings
 " ==========================================================
-colorscheme PaperColor
+colorscheme github_light
 syntax on                     " syntax highlighing
 filetype on                   " try to detect filetypes
 filetype plugin indent on     " enable loading indent file for filetype
@@ -53,7 +53,8 @@ set shiftround              " rounds indent to a multiple of shiftwidth
 set matchpairs+=<:>         " show matching <> (html mainly) as well
 set foldmethod=indent       " allow us to fold on indents
 set foldlevel=99            " don't fold by default
-hi Folded ctermbg=254       " give folds a light background
+" set to 254 with PaperColor to make it light grey
+hi Folded ctermbg=255       " give folds a light background
 set cindent                 " Indent according to c rules
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="

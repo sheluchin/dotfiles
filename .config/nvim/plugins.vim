@@ -10,6 +10,7 @@ endif
 
 call plug#begin('~/.nvim/plugged')
     Plug 'NLKNguyen/papercolor-theme'
+    Plug 'projekt0n/github-nvim-theme'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'Yggdroot/indentLine'
     Plug 'mhinz/vim-signify'
