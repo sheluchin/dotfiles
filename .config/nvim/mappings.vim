@@ -33,10 +33,6 @@ nnoremap <Leader>hd :SignifyHunkDiff<cr>
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
 
-" vim-test
-map <Leader>tn :TestNearest --reuse-db<CR>
-map <Leader>tl :TestLast<CR>
-
 " neoterm
 nnoremap <Leader>r TREPLSend
 vnoremap <Leader>r '<,'>TREPLSend

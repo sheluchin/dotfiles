@@ -15,7 +15,6 @@ call plug#begin('~/.nvim/plugged')
     Plug 'Yggdroot/indentLine'
     Plug 'mhinz/vim-signify'
     Plug 'dahu/vim-fanfingtastic'
-    Plug 'janko-m/vim-test'
     Plug 'kassio/neoterm'
     Plug 'ludovicchabant/vim-gutentags'
     Plug 'majutsushi/tagbar'
@@ -105,13 +104,6 @@ command! -bang -nargs=* VimwikiAg
 let g:indentLine_color_term = 153
 let g:tagbar_foldlevel=0
 let g:ackprg='ag'
-
-" vim-test
-let g:neoterm_default_mod = 'botright'
-let g:test#strategy = 'neoterm'
-let g:test#python#runner = 'pytest'
-let test#python#pytest#options = '-sv --cov-report=html --cov .'
-let test#filename_modifier = ':p'  " Use absolute paths
 
 " nerdtree
 let NERDTreeIgnore = ['\.pyc$', '__pycache__$']
