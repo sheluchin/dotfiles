@@ -144,19 +144,6 @@ nmap <F5> :tabclose<CR>       " Close the current tab. Returns to old position
 " Toggle diff
 nnoremap <silent> <Leader>df :call DiffToggle()<CR>
 
-" Open coverage report
-map <Leader>cr :call OpenCoverage()<cr>
-
-" Open coverage of current file
-map <Leader>oc :call OpenFileCoverage()<CR>
-
-" Execute the test above cursor using Django test runner
-map <Leader>tt :call RunCurrentTest()<cr>
-" map <Leader>tt :call RunAssistiaTest()<cr>
-
-" Insert a breakpoint on line below cursor
-map <Leader>ef :call InsertBreakPoint()<cr>
-
 " Push the current branch (uses Fugitive)
 map <Leader>gp :call PushCurrentBranch()
 
