@@ -46,14 +46,6 @@ call plug#begin('~/.nvim/plugged')
     Plug 'cespare/vim-toml'
     Plug 'tpope/vim-abolish'
     Plug 'guns/vim-sexp',    {'for': 'clojure'}
-    " Plug 'liquidz/vim-iced', {'for': 'clojure'}
-    " Plug 'liquidz/vim-iced-coc-source', {'for': 'clojure'}
-    " Plug  'liquidz/vim-iced-neil', {'for': 'clojure'}
-    " Plug 'liquidz/vim-iced-multi-session', {'for': 'clojure'}
-    " Plug 'Olical/conjure'
-    " Plug 'Olical/aniseed'
-    " Plug 'prabirshrestha/vim-lsp'
-    " Plug 'mattn/vim-lsp-settings'
     Plug 'tpope/vim-salve'
     Plug 'tpope/vim-projectionist'
     Plug 'tpope/vim-dispatch'
@@ -92,6 +84,7 @@ call plug#begin('~/.nvim/plugged')
     Plug 'bogado/file-line'
     Plug 'bakpakin/fennel.vim'
     Plug 'Olical/conjure'
+    Plug 'Olical/aniseed'
     Plug 'clojure-vim/vim-jack-in'
 call plug#end()
 
