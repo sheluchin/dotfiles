@@ -81,6 +81,8 @@ nnoremap <silent> crcc :call CocRequest('clojure-lsp', 'workspace/executeCommand
 nnoremap <silent> crdk :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'destructure-keys', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
 nnoremap <silent> cref :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'extract-function', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1, input('Function name: ')]})<CR>
 nnoremap <silent> crfe :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'create-function', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
+" TODO: doesn't work
+" nnoremap <silent> crrk :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'cycle-keyword-auto-resolve', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
 nnoremap <silent> <C-r>k :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'move-coll-entry-up', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
 nnoremap <silent> <C-r>j  :call CocRequest('clojure-lsp', 'workspace/executeCommand', {'command': 'move-coll-entry-down', 'arguments': [Expand('%:p'), line('.') - 1, col('.') - 1]})<CR>
 nmap <localleader>cc :Commands<cr>
@@ -199,6 +201,13 @@ nnoremap <LocalLeader>tw \wdoto) tap><ESC>
 nnoremap <LocalLeader>tt \idoto) tap><ESC>
 nnoremap <LocalLeader>bb :call fzf#run({'source': 'bb tasks \| tail -n +3 \| cut -f1 -d " "', 'sink': 'T bb'})<cr>
 
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -211,3 +220,6 @@ vim.keymap.set({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
 vim.keymap.set("n", "<c-n>", "<Plug>(YankyCycleForward)")
 vim.keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)")
 EOF
+
+nmap <LocalLeader>tj :Telescope jumplist<cr>
+nmap <LocalLeader><Leader> :Telescope tele_tabby list<cr>

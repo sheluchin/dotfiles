@@ -111,3 +111,7 @@ if exists('&inccommand')
 endif
 
 set mouse=a  " Let the mouse work
+
+" supports per-project config like .vimrc, but less secure
+" TODO: use .editorconfig instead
+set secure exrc

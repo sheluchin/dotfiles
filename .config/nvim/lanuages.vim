@@ -4,11 +4,22 @@
 " HTML
 autocmd FileType html,xhtml,xml,css setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 
+" vimwiki
+au FileType vimwiki setlocal cocu=
+au FileType markdown setlocal cocu=
+
 " Python
 "au BufRead *.py compiler nose
-au FileType python set omnifunc=pythoncomplete#Complete
+" au FileType python set omnifunc=pythoncomplete#Complete
 au FileType python setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+
+nmap gt <Plug>(neoterm-repl-send)
+xmap gt <Plug>(neoterm-repl-send)
+nmap gtt <Plug>(neoterm-repl-send-line)
+nmap <Leader>bp obreakpoint()<Esc>
+nmap <localleader>f  <Plug>(coc-format-selected)
+nmap <Leader>tn  :TestNearest<cr>
 
 " Spell checking and automatic wrapping at the recommended 72 columns for git commit messages.
 autocmd Filetype gitcommit setlocal spell textwidth=72
