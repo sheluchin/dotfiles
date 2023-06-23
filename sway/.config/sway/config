@@ -8,24 +8,28 @@
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+set $ergomod Alt+Shift+Ctrl
+set $ergosupermod Mod4+Alt+Shift+Ctrl
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term foot
+set $term kitty
+set $browser firefox
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu wofi --show drun --allow-images
 
 include /etc/sway/config-vars.d/*
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg ~/Pictures/Wallpapers/Desktop\ Background.bmp fill
 #
 # Example configuration:
 #
@@ -60,6 +64,15 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
+### Startup
+exec wl-paste -t text --watch clipman store
+# --max-items 500
+exec dunst
+exec nm-applet --indicator
+
+exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
 ### Key bindings
 #
 # Basics:
@@ -72,6 +85,10 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
     # Start your launcher
     bindsym $mod+d exec $menu
+    bindsym $ergosupermod+p exec clipman pick -t wofi
+
+    # Screenshots
+    bindsym Ctrl+Shift+Print exec grimshot copy area
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -84,7 +101,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -114,28 +131,60 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
     # Switch to workspace
     bindsym $mod+1 workspace number 1
-    bindsym $mod+2 workspace number 2
-    bindsym $mod+3 workspace number 3
-    bindsym $mod+4 workspace number 4
+    bindsym $mod+2 workspace "2: web"
+    bindsym $ergomod+2 workspace "2: web"
+    bindsym $ergosupermod+5 workspace "2: web"
+    bindsym $mod+3 workspace "3: slack"
+    bindsym $ergosupermod+3 workspace "3: slack"
+    bindsym $mod+4 workspace "4: code"
+    bindsym $ergosupermod+4 workspace "4: code"
     bindsym $mod+5 workspace number 5
+    bindsym $ergosupermod+2 workspace "5: chrome"
     bindsym $mod+6 workspace number 6
+    bindsym $ergosupermod+6 workspace number 6
     bindsym $mod+7 workspace number 7
     bindsym $mod+8 workspace number 8
-    bindsym $mod+9 workspace number 9
+    bindsym $mod+9 workspace "9: reveal"
     bindsym $mod+0 workspace number 10
+    bindsym $ergosupermod+slash workspace "map"
+    bindsym $ergosupermod+comma workspace "db"
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
-    bindsym $mod+Shift+2 move container to workspace number 2
-    bindsym $mod+Shift+3 move container to workspace number 3
-    bindsym $mod+Shift+4 move container to workspace number 4
-    bindsym $mod+Shift+5 move container to workspace number 5
+    # bindsym $mod+Shift+2 move container to workspace number 2
+    bindsym $mod+Shift+2 move container to workspace "2: web"
+    bindsym $mod+Shift+3 move container to workspace "3: slack"
+    bindsym $mod+Shift+4 move container to workspace "4: code"
+    bindsym $mod+Shift+5 move container to workspace "5: chrome"
     bindsym $mod+Shift+6 move container to workspace number 6
     bindsym $mod+Shift+7 move container to workspace number 7
     bindsym $mod+Shift+8 move container to workspace number 8
-    bindsym $mod+Shift+9 move container to workspace number 9
+    bindsym $mod+Shift+9 move container to workspace number "9: reveal"
     bindsym $mod+Shift+0 move container to workspace number 10
+    bindsym $mod+Shift+slash move container to workspace "map"
+    bindsym $mod+Shift+comma move container to workspace "db"
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
+    bindsym $mod+p workspace back_and_forth
+
+    # assign certian applications to workspaces
+    assign [app_id="firefox"] "2: web"
+    assign [app_id="chromium"] "5: chrome"
+    assign [app_id="kitty"] "4: code"
+    # TODO: doesn't work for Reveal
+    # $ swaymsg -t get_workspaces
+    # Workspace 1
+    #   Output: eDP-1
+    #   Layout: splith
+    #   Representation: H[java java]
+    # assign [app_id="Reveal"] 1
+    # assign [class="Reveal"] number 1
+    for_window [class="Slack"] move container to workspace "3: slack"
+    for_window [class="java" title="^Reveal$"] move container to workspace "9: reveal"
+    for_window [class="java" title="^Reveal: Mount$"] move container to workspace "9: reveal"
+    # for_window [class="Reveal"] move container to workspace 1
+
+    workspace "9: reveal" output eDP-1
 #
 # Layout stuff:
 #
@@ -203,20 +252,35 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
+    swaybar_command waybar
+    # position top
 
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+    # # When the status_command prints a new line to stdout, swaybar updates.
+    # # The default just shows the current date and time.
+    # status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
 
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
+    # colors {
+    #     statusline #ffffff
+    #     background #323232
+    #     inactive_workspace #32323200 #32323200 #5c5c5c
+    # }
 }
 
+### Audio
+bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
 include /etc/sway/config.d/*
+include fzfify_config
+
+bindsym $mod+x exec     '/home/alex/.config/sway/scripts/wofi-window-switch.sh'
+# NOTE: Doesn't work properly, probably because it's originally for alacritty.
+#       Right now it always opens in the wrong workspace.
+# bindsym $mod+z exec     '/home/alex/.config/sway/scripts/sway-rename'
+bindsym $mod+z exec swaymsg rename workspace to "$(wofi --show dmenu)"
 
 # convert clipboard JSON to EDN
 bindsym $mod+c exec '~/dotfiles/json_to_edn.clj'
+bindsym $ergosupermod+q exec 'systemctl suspend'

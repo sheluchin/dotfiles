@@ -92,7 +92,10 @@
     },
     "cpu": {
         "interval": 5,
-        "format": "🖳 {usage:2}%"
+        /* "format": "🖳 {usage:2}%", */
+        /* "format": "{icon0} {icon1} {icon2} 🖳 {usage:2}%", */
+        "format": "{icon0} {icon1} {icon2} {icon3} 🖳 {usage:2}%",
+        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
     },
     "battery": {
         "states": {
