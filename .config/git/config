@@ -24,3 +24,5 @@
     path = ~/.config/git/config.local
 [pull]
     rebase = false
+[init]
+    defaultBranch = main
