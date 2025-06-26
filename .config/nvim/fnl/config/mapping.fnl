@@ -1,4 +1,7 @@
-(import-macros {: map : augroup : autocmd} :macros)
+(import-macros {: map} :macros)
+(local {: autoload} (require :nfnl.module))
+
+(require "functions.yank_helpers")
 
 (map :n :<leader>w #(vim.cmd {:cmd "write"}))
 
