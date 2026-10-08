@@ -284,3 +284,6 @@ bindsym $mod+z exec swaymsg rename workspace to "$(wofi --show dmenu)"
 # convert clipboard JSON to EDN
 bindsym $mod+c exec '~/dotfiles/json_to_edn.clj'
 bindsym $ergosupermod+q exec 'systemctl suspend'
+
+# Handy speech-to-text (Wayland apps cannot grab global shortcuts; autopaste needs `apt install wtype`)
+bindsym Ctrl+1 exec handy --toggle-transcription
