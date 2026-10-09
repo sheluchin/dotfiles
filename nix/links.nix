@@ -1,6 +1,6 @@
 # Live symlinks into ~/dotfiles. Only the link target goes into /nix/store,
 # so edits apply immediately and secrets (.ssh, .gnupg) never get copied.
-# To add a config: add one line here, then run `hms`.
+# To add a config: `bb adopt <path>`, or add one line here and `bb switch`.
 { config, ... }:
 
 let
@@ -48,6 +48,8 @@ in
     "nvim".source = link ".config/nvim";
     "tags".source = link "tags";
     "keyrings".source = link "keyrings";
+
+    # bb adopt: new links go above this line
   };
 
   xdg.configFile = {

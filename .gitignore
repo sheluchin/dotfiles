@@ -16,3 +16,8 @@ tags
 /keyrings/live/pubring.kbx~
 /keyrings/live/secring.gpg
 /secrets
+/.config/nvim/conjure-log-*.fnl
+/.config/nvim/conjure-log-*.lua
+
+# nix build output
+/result
