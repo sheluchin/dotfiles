@@ -1,6 +1,6 @@
 # Live symlinks into ~/dotfiles. Only the link target goes into /nix/store,
 # so edits apply immediately and secrets (.ssh, .gnupg) never get copied.
-# To add a config: `bb adopt <path>`, or add one line here and `bb switch`.
+# To add a config: `bb home:adopt <path>`, or add one line here and `bb home:switch`.
 { config, ... }:
 
 let
@@ -49,7 +49,7 @@ in
     "tags".source = link "tags";
     "keyrings".source = link "keyrings";
 
-    # bb adopt: new links go above this line
+    # bb home:adopt: new links go above this line
   };
 
   xdg.configFile = {

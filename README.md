@@ -9,35 +9,35 @@ Day to day
 ----------
 
 All operations are [babashka](https://babashka.org) tasks in `bb.edn`.
-Run them from `~/dotfiles` (`cd ~/dotfiles && bb <task>`). `hms` is a shortcut for `bb switch` from anywhere.
+Run them from `~/dotfiles` (`cd ~/dotfiles && bb <task>`). `hms` is a shortcut for `bb home:switch` from anywhere.
 
-| Command                  | What it does                                                       |
-|--------------------------|--------------------------------------------------------------------|
-| `bb adopt ~/.config/x`  | Move `~/.config/x` into the repo, link it back, and switch         |
-| `bb switch` (or `hms`)  | Build and activate. Conflicting files get renamed to `*.hm-bak`   |
-| `bb build`              | Dry run: build without touching `~`                                |
-| `bb diff`               | Build, then list package changes vs. what's active                 |
-| `bb update`             | Bump nixpkgs + home-manager, then show the diff (doesn't switch)   |
-| `bb check`              | Every link target exists in the repo; every link in `~` resolves   |
-| `bb rollback`           | Activate the previous generation (asks first)                      |
-| `bb gens` / `bb news`  | List generations / read home-manager release news                  |
-| `bb gc`                 | Expire generations older than 30 days, then `nix store gc`         |
+| Command                         | What it does                                                     |
+|---------------------------------|------------------------------------------------------------------|
+| `bb home:adopt ~/.config/x`     | Move `~/.config/x` into the repo, link it back, and switch       |
+| `bb home:switch` (or `hms`)     | Build and activate. Conflicting files get renamed to `*.hm-bak`  |
+| `bb home:build`                 | Dry run: build without touching `~`                              |
+| `bb home:diff`                  | Build, then list package changes vs. what's active               |
+| `bb home:update`                | Bump nixpkgs + home-manager, then show the diff (doesn't switch) |
+| `bb home:check`                 | Every link target exists in the repo; every link in `~` resolves |
+| `bb home:rollback`              | Activate the previous generation (asks first)                    |
+| `bb home:gens` / `bb home:news` | List generations / read home-manager release news                |
+| `bb home:gc`                    | Expire generations older than 30 days, then `nix store gc`       |
 
-Run `bb tasks` for the full list.
+Run `bb tasks` for the full list (all under `home:`).
 
 Common jobs
 -----------
 
 **Track a new tool's config**
 
-    bb adopt ~/.config/foo                     # stored at ~/dotfiles/.config/foo
-    bb adopt ~/.config/foo --to foo/.config/foo  # per-tool dir, like sway/ and herdr/
+    bb home:adopt ~/.config/foo                     # stored at ~/dotfiles/.config/foo
+    bb home:adopt ~/.config/foo --to foo/.config/foo  # per-tool dir, like sway/ and herdr/
     git add nix/links.nix .config/foo && git commit
 
-**Install a CLI tool:** add it to `nix/packages.nix`, then `bb switch`.
+**Install a CLI tool:** add it to `nix/packages.nix`, then `bb home:switch`.
 Search names with `nix search nixpkgs <name>`.
 
-**Update everything:** `bb update`, read the diff, then `bb switch`.
+**Update everything:** `bb home:update`, read the diff, then `bb home:switch`.
 Undo with `git checkout flake.lock`.
 
 Layout
@@ -60,7 +60,7 @@ Gotchas
 -------
 
 - **Flakes ignore untracked files.** New files under `nix/` need `git add -N` before
-  building. `bb build` and `bb switch` warn about this.
+  building. `bb home:build` and `bb home:switch` warn about this.
 - **Some apps replace symlinks with plain files** when they save (e.g. `~/.claude/settings.json`).
   The next switch then fails with "would be clobbered". Copy the file back into the repo,
   delete it from `~`, and switch again.

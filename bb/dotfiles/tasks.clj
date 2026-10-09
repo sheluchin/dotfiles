@@ -9,7 +9,7 @@
 (def links-file (str (fs/path repo "nix" "links.nix")))
 (def flake (str repo "#alex"))
 (def hm-profile (str (fs/path home ".local/state/nix/profiles/home-manager")))
-(def adopt-marker "# bb adopt: new links go above this line")
+(def adopt-marker "# bb home:adopt: new links go above this line")
 
 (defn- sh
   "Runs in the repo. Only the first string is tokenized; pass other args separately."
@@ -52,7 +52,7 @@
   []
   (sh "nix flake update")
   (diff)
-  (println "\nLooks good? Run: bb switch   Otherwise: git checkout flake.lock"))
+  (println "\nLooks good? Run: bb home:switch   Otherwise: git checkout flake.lock"))
 
 (defn- link-targets
   "Repo-relative paths from every `link \"...\"` call in nix/links.nix."
@@ -111,11 +111,11 @@
 
 (defn adopt
   "Move a file or dir from $HOME into the repo, link it back, and switch.
-   Usage: bb adopt ~/.config/foo [--to foo/.config/foo]"
+   Usage: bb home:adopt ~/.config/foo [--to foo/.config/foo]"
   [args]
   (let [[target & opts] args
         {:strs [--to]} (apply hash-map opts)]
-    (when-not target (die "Usage: bb adopt <path in $HOME> [--to <repo path>]"))
+    (when-not target (die "Usage: bb home:adopt <path in $HOME> [--to <repo path>]"))
     (let [abs (fs/absolutize (fs/expand-home target))
           home-rel (str (fs/relativize home abs))
           repo-rel (or --to home-rel)
@@ -134,5 +134,5 @@
       (try (switch)
            (catch Exception _
              (die "Switch failed;" (str abs) "is NOT linked yet. File is safe at"
-                  (str dest) "- fix the error, then: bb switch")))
+                  (str dest) "- fix the error, then: bb home:switch")))
       (println "Done. Review and commit: git diff nix/links.nix"))))

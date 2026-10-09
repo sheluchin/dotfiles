@@ -4,7 +4,7 @@
 alias exs="exec $SHELL"
 
 # home-manager
-alias hms="bb --config ~/dotfiles/bb.edn switch"
+alias hms="bb --config ~/dotfiles/bb.edn home:switch"
 
 # Git
 alias gcd='git checkout develop'

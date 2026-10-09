@@ -1,25 +1,25 @@
-;; home-manager helpers. Run from ~/dotfiles: `bb tasks`, `bb switch`, ...
+;; home-manager helpers. Run from ~/dotfiles: `bb tasks`, `bb home:switch`, ...
 {:paths ["bb"]
  :tasks
  {:requires ([dotfiles.tasks :as t])
 
-  build    {:doc "Build the config without activating (dry run)"
-            :task (t/build)}
-  switch   {:doc "Build and activate; conflicting files get a .hm-bak suffix"
-            :task (t/switch)}
-  diff     {:doc "Build, then list package changes vs the active generation"
-            :task (t/diff)}
-  update   {:doc "Bump nixpkgs + home-manager pins, then show the diff"
-            :task (t/update)}
-  check    {:doc "Verify every link target exists and every link in ~ resolves"
-            :task (t/check)}
-  adopt    {:doc "Move a file from ~ into the repo and link it: adopt <path> [--to <repo path>]"
-            :task (t/adopt *command-line-args*)}
-  rollback {:doc "Activate the previous home-manager generation (asks first)"
-            :task (t/rollback)}
-  gens     {:doc "List home-manager generations"
-            :task (shell "home-manager generations")}
-  news     {:doc "Read home-manager release news"
-            :task (shell "home-manager news --flake" t/flake)}
-  gc       {:doc "Expire generations older than 30 days, then nix store gc"
-            :task (t/gc)}}}
+  home:build    {:doc "Build the config without activating (dry run)"
+                 :task (t/build)}
+  home:switch   {:doc "Build and activate; conflicting files get a .hm-bak suffix"
+                 :task (t/switch)}
+  home:diff     {:doc "Build, then list package changes vs the active generation"
+                 :task (t/diff)}
+  home:update   {:doc "Bump nixpkgs + home-manager pins, then show the diff"
+                 :task (t/update)}
+  home:check    {:doc "Verify every link target exists and every link in ~ resolves"
+                 :task (t/check)}
+  home:adopt    {:doc "Move a file from ~ into the repo and link it: home:adopt <path> [--to <repo path>]"
+                 :task (t/adopt *command-line-args*)}
+  home:rollback {:doc "Activate the previous home-manager generation (asks first)"
+                 :task (t/rollback)}
+  home:gens     {:doc "List home-manager generations"
+                 :task (shell "home-manager generations")}
+  home:news     {:doc "Read home-manager release news"
+                 :task (shell "home-manager news --flake" t/flake)}
+  home:gc       {:doc "Expire generations older than 30 days, then nix store gc"
+                 :task (t/gc)}}}
