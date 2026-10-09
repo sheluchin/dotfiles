@@ -2,84 +2,40 @@ Dotfiles
 ========
 
 My home directory, managed by a [home-manager](https://github.com/nix-community/home-manager)
-flake on Ubuntu. Configs are **live symlinks** into this repo, so editing a file
-here changes it in `~` immediately, with no rebuild.
+flake on Ubuntu. Full reference: **[nix/README.md](nix/README.md)**.
 
-Day to day
-----------
+How it works
+------------
 
-All operations are [babashka](https://babashka.org) tasks in `bb.edn`.
-Run them from `~/dotfiles` (`cd ~/dotfiles && bb <task>`). `hms` is a shortcut for `bb home:switch` from anywhere.
+- **`~/dotfiles` is the source of truth.** `flake.nix` describes the whole home
+  directory; `home-manager` applies it.
+- **Configs are live symlinks.** `nix/links.nix` maps `~/.tmux.conf` → `~/dotfiles/.tmux.conf`
+  and so on. Edit the repo file and it's live; no rebuild.
+- **Only links go into `/nix/store`**, never file contents, so `.ssh` and `.gnupg` stay out.
+- **CLI tools come from Nix**, listed in `nix/packages.nix` and pinned in `flake.lock`.
+  GUI apps (sway, waybar) and neovim stay on apt / `~/.local/bin`.
+- **Every switch is a generation**, so you can roll back.
 
-| Command                         | What it does                                                     |
-|---------------------------------|------------------------------------------------------------------|
-| `bb home:adopt ~/.config/x`     | Move `~/.config/x` into the repo, link it back, and switch       |
-| `bb home:switch` (or `hms`)     | Build and activate. Conflicting files get renamed to `*.hm-bak`  |
-| `bb home:build`                 | Dry run: build without touching `~`                              |
-| `bb home:diff`                  | Build, then list package changes vs. what's active               |
-| `bb home:update`                | Bump nixpkgs + home-manager, then show the diff (doesn't switch) |
-| `bb home:check`                 | Every link target exists in the repo; every link in `~` resolves |
-| `bb home:rollback`              | Activate the previous generation (asks first)                    |
-| `bb home:gens` / `bb home:news` | List generations / read home-manager release news                |
-| `bb home:gc`                    | Expire generations older than 30 days, then `nix store gc`       |
+How to use it
+-------------
 
-Run `bb tasks` for the full list (all under `home:`).
+Run tasks from `~/dotfiles`. `bb tasks` lists them all.
 
-Common jobs
------------
-
-**Track a new tool's config**
-
-    bb home:adopt ~/.config/foo                     # stored at ~/dotfiles/.config/foo
-    bb home:adopt ~/.config/foo --to foo/.config/foo  # per-tool dir, like sway/ and herdr/
-    git add nix/links.nix .config/foo && git commit
-
-**Install a CLI tool:** add it to `nix/packages.nix`, then `bb home:switch`.
-Search names with `nix search nixpkgs <name>`.
-
-**Update everything:** `bb home:update`, read the diff, then `bb home:switch`.
-Undo with `git checkout flake.lock`.
-
-Layout
-------
-
-| Path               | Purpose                                                          |
-|--------------------|------------------------------------------------------------------|
-| `flake.nix`        | Inputs (nixpkgs-unstable, home-manager) + `homeConfigurations.alex` |
-| `flake.lock`       | Pinned versions. Commit it.                                      |
-| `nix/home.nix`     | Top-level module: user, `stateVersion`, imports                  |
-| `nix/links.nix`    | Every symlink from `~` into this repo                            |
-| `nix/packages.nix` | CLI packages                                                     |
-| `bb.edn`, `bb/`    | The bb tasks                                                     |
-
-Links use `config.lib.file.mkOutOfStoreSymlink`, so `~/.x` → `/nix/store/…-hm_.x` →
-`~/dotfiles/.x`. Only the link goes into `/nix/store`; file contents (including
-`.ssh` and `.gnupg`) are never copied there.
+| You want to…              | Do this                                                      |
+|---------------------------|--------------------------------------------------------------|
+| Edit a config             | Edit the file in `~/dotfiles`. Done.                         |
+| Track a new tool's config | `bb home:adopt ~/.config/foo`, then commit                   |
+| Add a CLI tool            | Add it to `nix/packages.nix`, then `bb home:switch` (or `hms`) |
+| Update all tools          | `bb home:update`, read the diff, then `bb home:switch`       |
+| Something's off           | `bb home:check`                                              |
+| Undo the last switch      | `bb home:rollback`                                           |
 
 Gotchas
 -------
 
-- **Flakes ignore untracked files.** New files under `nix/` need `git add -N` before
-  building. `bb home:build` and `bb home:switch` warn about this.
-- **Some apps replace symlinks with plain files** when they save (e.g. `~/.claude/settings.json`).
-  The next switch then fails with "would be clobbered". Copy the file back into the repo,
-  delete it from `~`, and switch again.
-- **Don't roll back to generation 23 or earlier.** Those come from the old channel-based
-  setup, which had no links; activating one removes every link in `~`.
-- **GUI apps stay on apt** (sway, waybar, dunst, wofi). Nix-built GUI apps need GPU
-  driver setup on Ubuntu, which is turned off in `nix/home.nix`.
+1. **New files under `nix/` need `git add -N`.** Flakes can't see untracked files.
+   `home:build` and `home:switch` warn about this.
+2. **"Would be clobbered" error** means an app replaced a link with a plain file when
+   saving. Copy that file into the repo, delete it from `~`, switch again.
 
-New machine
------------
-
-1. Install Nix with flakes enabled.
-2. `git clone <this repo> ~/dotfiles`
-3. `nix run home-manager/master -- switch --flake ~/dotfiles#alex -b hm-bak`
-
-TODO
-----
-
-- neovim: not managed by nix yet. `~/.local/bin/nvim` is 0.11.6, nixpkgs has
-  0.12.x; test the fennel config against 0.12 before adding it to `nix/packages.nix`.
-- Remove leftover linuxbrew / `~/.local/bin` copies of tools nix now provides.
-- Legacy top-level links (`~/git`, `~/nvim`, `~/tags`, `~/keyrings`): probably droppable.
+More gotchas, the repo layout, new-machine setup and TODOs: [nix/README.md](nix/README.md).
