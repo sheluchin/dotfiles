@@ -1,0 +1,14 @@
+[Desktop Entry]
+
+Version=1.0
+Name=Freeplane
+Exec=env _JAVA_AWT_WM_NONREPARENTING=1 /usr/bin/freeplane
+Terminal=false
+Icon=freeplane
+Type=Application
+MimeType=application/x-freeplane;
+Categories=Office;
+GenericName=Freeplane
+Comment=A free tool to structure and organise your information with mind mapping
+Keywords=Mindmaps; Knowledge management; Organize information; Brainstorming; ...;
+StartupWMClass=org-knopflerfish-framework-BundleThread

@@ -3,6 +3,9 @@
 # Restart shell
 alias exs="exec $SHELL"
 
+# home-manager
+alias hms="home-manager switch --flake ~/dotfiles#alex"
+
 # Git
 alias gcd='git checkout develop'
 alias gpod='git pull origin develop'
@@ -22,7 +25,7 @@ alias ll='ls -AltrhG'
 
 alias grep='grep --color=auto --exclude=*.pyc --exclude-dir=.git'
 
-alias vim='NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim'
+alias vim='NVIM_LISTEN_ADDRESS=/tmp/nvimsocket_proc$$ nvim'
 alias v="$VISUAL"
 
 # clipboard
@@ -33,3 +36,9 @@ alias wttr='curl wttr.in/hamilton?m'
 alias myip='curl https://ipinfo.io/ip'
 alias unpip='pip freeze | xargs pip uninstall -y'
 alias rmpyc='find . -name "*.pyc" -exec rm -f {} \;'
+
+alias portal='bb -cp `clojure -Spath -M:portal/cli` -m portal.main'
+alias edn='portal edn'
+alias json='portal json'
+alias transit='portal transit'
+alias yaml='portal yaml'
